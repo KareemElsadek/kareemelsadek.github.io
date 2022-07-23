@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Kareem ALsadeq">
+<meta name="description" content="What is GraphQL? GraphQL is a data query language developed by Facebook. It acts as an alternative to the REST API.
+→ REST APIs communicate via HTTP requests to perform standard database functions like creating, reading, updating, and deleting records (CRUD) within a resource.
+→ Rest APIs require the client to send multiple requests to different endpoints on the API to query data from the database.
+→ With GraphQL, you only need to send one request to query the backend.">
+<meta name="keywords" content="blog,pentester,personal">
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Kareem Alsadeq&#39;s personal website"/>
+
+<meta property="og:title" content="" />
+<meta property="og:description" content="Kareem Alsadeq&#39;s personal website" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://alsadeq.github.io/posts/graphql/" />
+
+
+
+
+  <title>Hello Friend!</title>
+
+  
+  <link rel="canonical" href="https://alsadeq.github.io/posts/graphql/">
+  
+
+  <link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.min.d0d974af9060db1f638bc87d1142862c434e0df7c8f2272ef0e8ed5590cef186.css" integrity="sha256-0Nl0r5Bg2x9ji8h9EUKGLENODffI8icu8OjtVZDO8YY=" crossorigin="anonymous" media="screen" />
+
+
+
+
+
+  
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.min.01ce5a59759539162fb20573a28d9572f4f718f648ae0c0cb12d0b09bea975bc.css" integrity="sha256-Ac5aWXWVORYvsgVzoo2VcvT3GPZIrgwMsS0LCb6pdbw=" crossorigin="anonymous" media="screen" />
+  
+
+
+
+   
+
+
+
+
+  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+  <link rel="alternate" type="application/rss+xml" href="/posts/graphql/index.xml" title="Hello Friend!" />
+
+
+  <meta name="generator" content="Hugo 0.101.0" />
+
+
+  
+
+</head>
+
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      Hello Friend!
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/posts/">Blogs</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/about/">About</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container list">
+    <h1 class="title">
+      <a class="title-link" href="https://alsadeq.github.io/posts/graphql/">
+        
+      </a>
+    </h1>
+    <h1 id="what-is-graphql">
+  What is GraphQL?
+  <a class="heading-link" href="#what-is-graphql">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h1>
+<p>GraphQL is a data query language developed by Facebook. It acts as an alternative to the <a href="https://www.ibm.com/cloud/learn/rest-apis">REST API</a>.<br>
+→ REST APIs communicate via HTTP requests to perform standard database functions like creating, reading, updating, and deleting records (CRUD) within a resource.<br>
+→ Rest APIs require the client to send multiple requests to different endpoints on the API to query data from the database.<br>
+→ With GraphQL, you only need to send one request to query the backend.<br>
+→ For REST API calls, you need to know the URL of each resource, the HTTP methods used on each resource, and the schema of each resource.<br>
+→ For GraphQL calls, you need to know only the URL of the API and the schema.<br>
+<strong>An example of a REST API call</strong><br>
+If you want to register a user, you send a request to [/api/v1/register]. If you want to sign-in, you send a request to [/api/v1/login]. And if you want to reset your password, you send another request to [/api/v1/reset-password].
+Every resource has its own schema and own method. But in GraphQL, there is only one endpoint that you can send all requests to it! (/graphql?q=)<br>
+<strong>The components of the GraphQL</strong><br>
+→ server-side: where it resolves the operations and provides the requested data/operation.<br>
+→ client-side: any application that wants to interact with the GraphQL API to do some operations.<br>
+<strong>there are 3 main operations:</strong><br>
+→ Query: fetching data using specifically defined query operations.<br>
+→ Mutations: for modifying any data (creating, updating, or deleting) in a database using operations.<br>
+→ Subscriptions: for receiving real-time messages from the back-end.<br>
+<strong>we can see how GraphQL works from: <a href="https://exzandar.home.blog/2022/06/22/graphql-the-graphql/">Examples of GraphQL structure</a></strong></p>
+<hr>
+<h1 id="graphql-pentesting">
+  GraphQL Pentesting
+  <a class="heading-link" href="#graphql-pentesting">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h1>
+<p>By default, the endpoint of the GraphQL API will be one of the following:
+[&quot;/graphql&quot;, &ldquo;/graphiql&rdquo;, &ldquo;/graphql/console&rdquo;, &ldquo;/graphql.php&rdquo;, &ldquo;/graphiql.php&rdquo;, &ldquo;/explorer&rdquo;, &ldquo;/altair&rdquo;, &ldquo;/playground&rdquo;, &ldquo;/graphql-explorer&rdquo;, &ldquo;/graphiql/&rdquo;]<br>
+• You can test queries through <a href="http://graphql.org/swapi-graphql">Swapi-GrapthQL</a><br>
+<strong><strong>Introspection</strong></strong><br>
+→ It’s often useful to ask a GraphQL schema for information about what queries it supports.
+→ With introspection, you can get all the details about the GraphQL schema, including fields, types, sub-fields, and more.<br>
+The introspection system is enabled by default.<br>
+→ simple examples:<br>
+• {__schema{types{name,fields{name}}}} #getting fields and subfields <img src="/graphql-1.png" alt="">
+• { __schema{types{name,fields{name,args{name,description,type{name,kind,ofType{name,kind}}}}}}} #extracting all the types, it’s fields, and it’s arguments <img src="/graphql-2.png" alt="">
+• After knowing the fields and subfields we need to query them to get the data :D\</p>
+<ul>
+<li><strong>EX:</strong> /graphql?q={Users {id, name, and nickname}}</li>
+</ul>
+<p><strong>• If the introspection is off!</strong><br>
+→  So we try to get information about the schema from the resulted errors, such as the following:<br>
+query: query={users}<br>
+error: &ldquo;Cannot query field &quot;users&quot; on type &quot;Query&quot;. Did you mean &quot;imUsers&quot; or &quot;orders&quot;?&rdquo;<br>
+Now we have a correct field name from the error &ldquo;imUsers&rdquo;!<br>
+query: query={imUsers{ids}}<br>
+error: &ldquo;Cannot query field &quot;ids&quot; on type &quot;ImUser&quot;. Did you mean &quot;id&quot;?&rdquo;<br>
+now we get subfield of imUsers field, and so on reaching to the dumping.</p>
+<p><strong>Possible attacks on GraphQL</strong><br>
+There are many vulnerabilities that can be raised from GraphQL mis-configuration, such as the following:<br>
+→ BAC and IDOR.<br>
+→ Information Disclosure.<br>
+→ SQL Injection.<br>
+→ CUD “creating, updating, and deleting” data via abusing mutations.<br>
+→ Authorization bypass.<br>
+→ Batching Attacks.\</p>
+<hr>
+<h2 id="refrences">
+  <strong>Refrences:</strong>
+  <a class="heading-link" href="#refrences">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<ul>
+<li><a href="https://book.hacktricks.xyz/network-services-pentesting/pentesting-web/graphql">https://book.hacktricks.xyz/network-services-pentesting/pentesting-web/graphql</a></li>
+<li><a href="https://exzandar.home.blog/2022/06/22/graphql-the-graphql/">https://exzandar.home.blog/2022/06/22/graphql-the-graphql/</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/12-API_Testing/01-Testing_GraphQL">https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/12-API_Testing/01-Testing_GraphQL</a></li>
+</ul>
+
+    <ul></ul>
+
+    
+
+
+
+
+
+
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2022
+     Kareem ALsadeq 
+    ·
+    
+    Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+  
+  <script src="/js/coder.min.95c87ce84e6a12567a7de2ec1bf4cd9bd1affff21ebbba9398b7130116893991.js" integrity="sha256-lch86E5qElZ6feLsG/TNm9Gv//Ieu7qTmLcTARaJOZE="></script>
+  
+
+  
+
+  
+
+  <script>
+(function(f, a, t, h, o, m){
+	a[h]=a[h]||function(){
+		(a[h].q=a[h].q||[]).push(arguments)
+	};
+	o=f.createElement('script'),
+	m=f.getElementsByTagName('script')[0];
+	o.async=1; o.src=t; o.id='fathom-script';
+	m.parentNode.insertBefore(o,m)
+})(document, window, '//cdn.usefathom.com/tracker.js', 'fathom');
+fathom('set', 'siteId', 'ABCDE');
+fathom('trackPageview');
+</script>
+
+
+  <script async defer data-domain="alsadeq.github.io" src="https://plausible.io/js/plausible.js"></script>
+
+
+  <script data-goatcounter="https://55555.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+
+  
+
+  <script type="application/javascript">
+  var _paq = window._paq = window._paq || [];
+   
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="https://analytics.alsadeq.github.io/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', 'ABCDE']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+
+
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=gid"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'gid');
+</script>
+
+
+  <script type="text/javascript">
+    !function(T,l,y){var S=T.location,k="script",D="connectionString",C="ingestionendpoint",I="disableExceptionTracking",E="ai.device.",b="toLowerCase",w="crossOrigin",N="POST",e="appInsightsSDK",t=y.name||"appInsights";(y.name||T[e])&&(T[e]=t);var n=T[t]||function(d){var g=!1,f=!1,m={initialize:!0,queue:[],sv:"5",version:2,config:d};function v(e,t){var n={},a="Browser";return n[E+"id"]=a[b](),n[E+"type"]=a,n["ai.operation.name"]=S&&S.pathname||"_unknown_",n["ai.internal.sdkVersion"]="javascript:snippet_"+(m.sv||m.version),{time:function(){var e=new Date;function t(e){var t=""+e;return 1===t.length&&(t="0"+t),t}return e.getUTCFullYear()+"-"+t(1+e.getUTCMonth())+"-"+t(e.getUTCDate())+"T"+t(e.getUTCHours())+":"+t(e.getUTCMinutes())+":"+t(e.getUTCSeconds())+"."+((e.getUTCMilliseconds()/1e3).toFixed(3)+"").slice(2,5)+"Z"}(),name:"Microsoft.ApplicationInsights."+e.replace(/-/g,"")+"."+t,sampleRate:100,tags:n,data:{baseData:{ver:2}}}}var h=d.url||y.src;if(h){function a(e){var t,n,a,i,r,o,s,c,u,p,l;g=!0,m.queue=[],f||(f=!0,t=h,s=function(){var e={},t=d.connectionString;if(t)for(var n=t.split(";"),a=0;a<n.length;a++){var i=n[a].split("=");2===i.length&&(e[i[0][b]()]=i[1])}if(!e[C]){var r=e.endpointsuffix,o=r?e.location:null;e[C]="https://"+(o?o+".":"")+"dc."+(r||"services.visualstudio.com")}return e}(),c=s[D]||d[D]||"",u=s[C],p=u?u+"/v2/track":d.endpointUrl,(l=[]).push((n="SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details)",a=t,i=p,(o=(r=v(c,"Exception")).data).baseType="ExceptionData",o.baseData.exceptions=[{typeName:"SDKLoadFailed",message:n.replace(/\./g,"-"),hasFullStack:!1,stack:n+"\nSnippet failed to load ["+a+"] -- Telemetry is disabled\nHelp Link: https://go.microsoft.com/fwlink/?linkid=2128109\nHost: "+(S&&S.pathname||"_unknown_")+"\nEndpoint: "+i,parsedStack:[]}],r)),l.push(function(e,t,n,a){var i=v(c,"Message"),r=i.data;r.baseType="MessageData";var o=r.baseData;return o.message='AI (Internal): 99 message:"'+("SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details) ("+n+")").replace(/\"/g,"")+'"',o.properties={endpoint:a},i}(0,0,t,p)),function(e,t){if(JSON){var n=T.fetch;if(n&&!y.useXhr)n(t,{method:N,body:JSON.stringify(e),mode:"cors"});else if(XMLHttpRequest){var a=new XMLHttpRequest;a.open(N,t),a.setRequestHeader("Content-type","application/json"),a.send(JSON.stringify(e))}}}(l,p))}function i(e,t){f||setTimeout(function(){!t&&m.core||a()},500)}var e=function(){var n=l.createElement(k);n.src=h;var e=y[w];return!e&&""!==e||"undefined"==n[w]||(n[w]=e),n.onload=i,n.onerror=a,n.onreadystatechange=function(e,t){"loaded"!==n.readyState&&"complete"!==n.readyState||i(0,t)},n}();y.ld<0?l.getElementsByTagName("head")[0].appendChild(e):setTimeout(function(){l.getElementsByTagName(k)[0].parentNode.appendChild(e)},y.ld||0)}try{m.cookie=l.cookie}catch(p){}function t(e){for(;e.length;)!function(t){m[t]=function(){var e=arguments;g||m.queue.push(function(){m[t].apply(m,e)})}}(e.pop())}var n="track",r="TrackPage",o="TrackEvent";t([n+"Event",n+"PageView",n+"Exception",n+"Trace",n+"DependencyData",n+"Metric",n+"PageViewPerformance","start"+r,"stop"+r,"start"+o,"stop"+o,"addTelemetryInitializer","setAuthenticatedUserContext","clearAuthenticatedUserContext","flush"]),m.SeverityLevel={Verbose:0,Information:1,Warning:2,Error:3,Critical:4};var s=(d.extensionConfig||{}).ApplicationInsightsAnalytics||{};if(!0!==d[I]&&!0!==s[I]){var c="onerror";t(["_"+c]);var u=T[c];T[c]=function(e,t,n,a,i){var r=u&&u(e,t,n,a,i);return!0!==r&&m["_"+c]({message:e,url:t,lineNumber:n,columnNumber:a,error:i}),r},d.autoExceptionInstrumented=!0}return m}(y.cfg);function a(){y.onInit&&y.onInit(n)}(T[t]=n).queue&&0===n.queue.length?(n.queue.push(a),n.trackPageView({})):a()}(window,document,{
+    src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js", 
+    
+    
+    
+    crossOrigin: "anonymous", 
+    
+    cfg: { 
+        connectionString: "connectionstring"
+         
+    }});
+    </script>    
+
+</body>
+
+</html>
