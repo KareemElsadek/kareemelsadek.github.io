@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Hello Friend!</title>
-    <link>https://alsadeq.github.io/posts/graphql/</link>
-    <description>Recent content on Hello Friend!</description>
+    <title>whoami</title>
+    <link>https://kareemelsadek.github.io/posts/graphql/</link>
+    <description>Recent content on whoami</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://alsadeq.github.io/posts/graphql/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://kareemelsadek.github.io/posts/graphql/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

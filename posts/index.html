@@ -1,5 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+<style type="text/css">
+  .navigation-title h3 {
+       
+      font-weight: bold;
+      padding-right: 5px;
+      width: fit-content;
+      font-family: Arial, Helvetica, sans-serif;
+      position: relative;
+      overflow: hidden;
+      padding-right: 5px;
+      white-space: nowrap;
+      margin: 0;
+      color: red !important;
+      border-right: 4px solid white;
+      transition: 0.5s;
+      animation-direction: alternate;
+      display: inline-block !important;
+       
+      animation:  sd 1s linear infinite;
+
+  }
+  @keyframes sd {
+    from {
+      border-right-color: white;
+    }
+    to {
+      border-right-color: transparent;
+    }
+  }
+  @keyframes wewe {
+    from {
+      width: 0px ;
+    }
+    to {
+      width: 118px ;
+    }
+  }
+</style>
 <head>
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,15 +57,15 @@
 <meta property="og:title" content="Articles" />
 <meta property="og:description" content="Kareem Alsadeq&#39;s personal website" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://alsadeq.github.io/posts/" />
+<meta property="og:url" content="https://kareemelsadek.github.io/posts/" />
 
 
 
 
-  <title>Hello Friend!</title>
+  <title>whoami</title>
 
   
-  <link rel="canonical" href="https://alsadeq.github.io/posts/">
+  <link rel="canonical" href="https://kareemelsadek.github.io/posts/">
   
 
   <link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
@@ -65,7 +103,7 @@
 <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
 
 
-  <link rel="alternate" type="application/rss+xml" href="/posts/index.xml" title="Hello Friend!" />
+  <link rel="alternate" type="application/rss+xml" href="/posts/index.xml" title="whoami" />
 
 
   <meta name="generator" content="Hugo 0.101.0" />
@@ -94,7 +132,9 @@
     <nav class="navigation">
   <section class="container">
     <a class="navigation-title" href="/">
-      Hello Friend!
+      <h3>
+      whoami
+    </h3>
     </a>
     
       <input type="checkbox" id="menu-toggle" />
@@ -124,13 +164,69 @@
       
   <section class="container list">
     <h1 class="title">
-      <a class="title-link" href="https://alsadeq.github.io/posts/">
+      <a class="title-link" href="https://kareemelsadek.github.io/posts/">
         Articles
       </a>
     </h1>
     <p><strong>I’m just trying to share some simple knowledge D:</strong></p>
 
-    <ul></ul>
+    <ul><script>
+
+</script>
+<style type="text/css">
+	.card {
+		display: flex;
+		flex-direction: column;
+		 
+
+		margin: 20px auto;
+		align-items: center;
+		justify-content: space-between;
+	}
+	.card a {
+		
+	}
+	.card a h3 {
+
+		font-weight: bold;
+		font-size: 35px;
+		margin-bottom: 0;
+		margin-top: 20px;
+		margin-left: 20px;
+
+
+	}
+	.card h4 {
+		margin-top: 12px;
+	}
+	.card img {
+		width: 600px;
+	}
+	@media (min-width: 480px) {
+		.card img {
+			width: 100%;
+		}
+	}
+</style>
+<li class="card">
+  <a class="title" name="GraphQL" href="/posts/graphql/"><img src="/graph.png" ></a>
+  
+  <a class="title" name="GraphQL" href="/posts/graphql/"><h3>GraphQL</h3></a>
+  <h4>[Simple intro to GraphQL Pentesting]</h4>  
+</li>
+<script type="text/javascript">
+	let links = Array.from(document.querySelectorAll(".card a"));
+	links.forEach((link) => {
+		console.log(link.name);
+		let views = localStorage.getItem(link.name) ? localStorage.getItem(link.name) : 0;
+		link.addEventListener("click", () => {
+			views++;
+			localStorage.setItem(link.name, views);		
+		})
+		localStorage.setItem(link.name, views);		
+	})
+</script>
+</ul>
 
     
 
@@ -231,6 +327,17 @@ fathom('trackPageview');
     }});
     </script>    
 
+<script type="text/javascript">
+    let whoami = document.querySelector(".navigation-title h3");
+    let textContent = whoami.textContent;
+    whoami.textContent = "";
+    let i = 0;
+    let addLetters = setInterval(() =>{
+      whoami.textContent += textContent[i];
+      i++;
+      i == textContent.length ? clearInterval(addLetters) : "";
+    },300)
+  </script>
 </body>
 
 </html>
