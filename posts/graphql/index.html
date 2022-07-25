@@ -63,7 +63,7 @@ REST API GraphQL • Require the client to send multiple requests to different e
 
 
 
-  <title>whoami</title>
+  <title>ALsadeq</title>
 
   
   <link rel="canonical" href="https://kareemelsadek.github.io/posts/graphql/">
@@ -104,7 +104,7 @@ REST API GraphQL • Require the client to send multiple requests to different e
 <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
 
 
-  <link rel="alternate" type="application/rss+xml" href="/posts/graphql/index.xml" title="whoami" />
+  <link rel="alternate" type="application/rss+xml" href="/posts/graphql/index.xml" title="ALsadeq" />
 
 
   <meta name="generator" content="Hugo 0.101.0" />
@@ -119,7 +119,9 @@ REST API GraphQL • Require the client to send multiple requests to different e
 
 
 
-
+<head>
+  <title>test</title>
+</head>
 <body class="preload-transitions colorscheme-auto">
   
 <div class="float-container">
@@ -134,7 +136,7 @@ REST API GraphQL • Require the client to send multiple requests to different e
   <section class="container">
     <a class="navigation-title" href="/">
       <h3>
-      whoami
+      ALsadeq
     </h3>
     </a>
     
@@ -244,11 +246,10 @@ REST API GraphQL • Require the client to send multiple requests to different e
 •The introspection system is enabled by default, but it can be disabled.<br>
 <strong>Simple examples:</strong><br>
 • {__schema{types{name,fields{name}}}} #getting fields and subfields <img src="/graphql-1.png" alt=""><br>
-• { __schema{types{name,fields{name,args{name,description,type{name,kind,ofType{name,kind}}}}}}} #extracting all the types, it’s fields, and it’s arguments <img src="/graphql-2.png" alt=""><br>
-• After knowing the fields and subfields we need to query them to get the data :D</p>
-<ul>
-<li><strong>EX:</strong> /graphql?q={Users {id, name, and nickname}}</li>
-</ul>
+• { __schema{types{name,fields{name,args{name,description,type{name,kind,ofType{name,kind}}}}}}} #extracting all the types, it’s fields, and it’s arguments <img src="/graphql-2.png" alt=""></p>
+<p>• <strong>At this point, there is no vulnerability!</strong><br>
+• After knowing the fields and subfields we need to query them to get the data :D<br>
+<strong>EX:</strong> /graphql?q={Users{id,name,nickname}}</p>
 <p><strong>• If the introspection is off!</strong><br>
 •  So we try to get information about the schema from the resulted errors, such as the following:<br>
 query: query={users} <img src="/graph-errors1.png" alt=""><br>
@@ -280,7 +281,11 @@ There are many vulnerabilities that can be raised from GraphQL mis-configuration
 <li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/12-API_Testing/01-Testing_GraphQL">https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/12-API_Testing/01-Testing_GraphQL</a></li>
 <li><a href="https://exzandar.home.blog/2022/06/22/graphql-the-graphql/">https://exzandar.home.blog/2022/06/22/graphql-the-graphql/</a></li>
 </ul>
-
+<script>
+	    document.querySelector("title").textContent = "GraphQL";
+</script>
+<head>
+</head>
     <ul></ul>
 
     
@@ -348,7 +353,7 @@ fathom('trackPageview');
   _paq.push(['trackPageView']);
   _paq.push(['enableLinkTracking']);
   (function() {
-    var u="https://analytics.alsadeq.github.io/";
+    var u="https://kareemelsadek.github.io/";
     _paq.push(['setTrackerUrl', u+'matomo.php']);
     _paq.push(['setSiteId', 'ABCDE']);
     var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
@@ -392,6 +397,7 @@ fathom('trackPageview');
       i++;
       i == textContent.length ? clearInterval(addLetters) : "";
     },300)
+
   </script>
 </body>
 
