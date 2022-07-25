@@ -246,7 +246,7 @@ REST API GraphQL • Require the client to send multiple requests to different e
 •The introspection system is enabled by default, but it can be disabled.<br>
 <strong>Simple examples:</strong><br>
 • {__schema{types{name,fields{name}}}} #getting fields and subfields <img src="/graphql-1.png" alt=""><br>
-• { __schema{types{name,fields{name,args{name,description,type{name,kind,ofType{name,kind}}}}}}} #extracting all the types, it’s fields, and it’s arguments <img src="/graphql-2.png" alt=""></p>
+• { __schema{types{name,fields{name,args{name,description,type{name,kind,ofType{name,kind}}}}}}}<br>#extracting all the types, it’s fields, and it’s arguments <img src="/graphql-2.png" alt=""></p>
 <p>• <strong>At this point, there is no vulnerability!</strong><br>
 • After knowing the fields and subfields we need to query them to get the data :D<br>
 <strong>EX:</strong> /graphql?q={Users{id,name,nickname}}</p>
