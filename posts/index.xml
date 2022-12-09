@@ -8,6 +8,15 @@
     <language>en-us</language>
     <lastBuildDate>Fri, 22 Jul 2022 18:35:13 -0400</lastBuildDate><atom:link href="https://kareemelsadek.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>AD Compromising(HTB/THM)</title>
+      <link>https://kareemelsadek.github.io/posts/ad-comp/</link>
+      <pubDate>Fri, 22 Jul 2022 18:35:13 -0400</pubDate>
+      
+      <guid>https://kareemelsadek.github.io/posts/ad-comp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>GraphQL</title>
       <link>https://kareemelsadek.github.io/posts/graphql/</link>
       <pubDate>Fri, 22 Jul 2022 18:35:13 -0400</pubDate>

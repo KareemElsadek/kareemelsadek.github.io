@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <style type="text/css">
-  p {
-	max-width: 100%;
-    }
   .navigation-title h3 {
        
       font-weight: bold;
@@ -249,7 +246,7 @@ REST API GraphQL • Require the client to send multiple requests to different e
 •The introspection system is enabled by default, but it can be disabled.<br>
 <strong>Simple examples:</strong><br>
 • {__schema{types{name,fields{name}}}} #getting fields and subfields <img src="/graphql-1.png" alt=""><br>
-• { __schema{types{name,fields{name,args{name,description,type{name,kind,ofType{name,kind}}}}}}}<br>#extracting all the types, it’s fields, and it’s arguments <img src="/graphql-2.png" alt=""></p>
+• { __schema{types{name,fields{name,args{name,description,type{name,kind,ofType{name,kind}}}}}}} #extracting all the types, it’s fields, and it’s arguments <img src="/graphql-2.png" alt=""></p>
 <p>• <strong>At this point, there is no vulnerability!</strong><br>
 • After knowing the fields and subfields we need to query them to get the data :D<br>
 <strong>EX:</strong> /graphql?q={Users{id,name,nickname}}</p>
@@ -269,7 +266,7 @@ There are many vulnerabilities that can be raised from GraphQL mis-configuration
 • CUD “creating, updating, and deleting” data via abusing mutations.<br>
 • Authorization bypass.<br>
 • Broken access control.</p>
-<p><strong>Some attacks scenarios</strong><br>
+<p><strong>Some attacks senarios</strong><br>
 • <a href="https://0xdf.gitlab.io/2021/05/29/htb-cereal.html#graphql-enumeration">SSRF from GraphQL with enabled Introspection</a></p>
 <hr>
 <h2 id="refrences">
