@@ -1,411 +1,682 @@
-<!DOCTYPE html>
-<html lang="en">
-<style type="text/css">
-  .navigation-title h3 {
-       
-      font-weight: bold;
-      padding-right: 5px;
-      width: fit-content;
-      font-family: Arial, Helvetica, sans-serif;
-      position: relative;
-      overflow: hidden;
-      padding-right: 5px;
-      white-space: nowrap;
-      margin: 0;
-      color: red !important;
-      border-right: 4px solid white;
-      transition: 0.5s;
-      animation-direction: alternate;
-      display: inline-block !important;
-       
-      animation:  sd 1s linear infinite;
-
-  }
-  @keyframes sd {
-    from {
-      border-right-color: white;
-    }
-    to {
-      border-right-color: transparent;
-    }
-  }
-  @keyframes wewe {
-    from {
-      width: 0px ;
-    }
-    to {
-      width: 118px ;
-    }
-  }
-</style>
-<head>
-  <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="light dark">
-
-
-
-
-<meta name="author" content="Kareem ALsadeq">
-<meta name="description" content="Best platform to learn AD compromising (HTB\THM) Why I am writing this blog? The main reason I’m writing this blog is to share with you my personal experience in learning Active-Directory pentesting which I needed to learn in order to build my C2-framework.
-That’s why this blog intended to guide you to gain great knowledge while saving huge amount of time, and that’s by covering the following points:
-Active Directory Mistakes have done before learning TryHackMe Module HackTheBox Academy &amp; its module Simple comparison Which platform to choose Active Directory A directory service for Windows enterprise environments.">
-<meta name="keywords" content="blog,pentester,personal">
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Kareem Alsadeq&#39;s personal website"/>
-
-<meta property="og:title" content="" />
-<meta property="og:description" content="Kareem Alsadeq&#39;s personal website" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://kareemelsadek.github.io/posts/adcomp/" />
-
-
-
-
-  <title>ALsadeq</title>
-
-  
-  <link rel="canonical" href="https://kareemelsadek.github.io/posts/adcomp/">
-  
-
-  <link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
-
-
-  
-  
-  <link rel="stylesheet" href="/css/coder.min.d0d974af9060db1f638bc87d1142862c434e0df7c8f2272ef0e8ed5590cef186.css" integrity="sha256-0Nl0r5Bg2x9ji8h9EUKGLENODffI8icu8OjtVZDO8YY=" crossorigin="anonymous" media="screen" />
-
-
-
-
-
-  
-  
-    
-    
-    <link rel="stylesheet" href="/css/coder-dark.min.01ce5a59759539162fb20573a28d9572f4f718f648ae0c0cb12d0b09bea975bc.css" integrity="sha256-Ac5aWXWVORYvsgVzoo2VcvT3GPZIrgwMsS0LCb6pdbw=" crossorigin="anonymous" media="screen" />
-  
-
-
-
-   
-
-
-
-
-  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
-
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
-
-
-  <link rel="alternate" type="application/rss+xml" href="/posts/adcomp/index.xml" title="ALsadeq" />
-
-
-  <meta name="generator" content="Hugo 0.101.0" />
-
-
-  
-
-</head>
-
-
-
-
-
-
-<head>
-  <title>test</title>
-</head>
-<body class="preload-transitions colorscheme-auto">
-  
-<div class="float-container">
-    <a id="dark-mode-toggle" class="colorscheme-toggle">
-        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
-    </a>
-</div>
-
-
-  <main class="wrapper">
-    <nav class="navigation">
-  <section class="container">
-    <a class="navigation-title" href="/">
-      <h3>
-      ALsadeq
-    </h3>
-    </a>
-    
-      <input type="checkbox" id="menu-toggle" />
-      <label class="menu-button float-right" for="menu-toggle">
-        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
-      </label>
-      <ul class="navigation-list">
-        
-          
-            <li class="navigation-item">
-              <a class="navigation-link" href="/posts/">Blogs</a>
-            </li>
-          
-            <li class="navigation-item">
-              <a class="navigation-link" href="/about/">About</a>
-            </li>
-          
-        
-        
-      </ul>
-    
-  </section>
-</nav>
-
-
-    <div class="content">
-      
-  <section class="container list">
-    <h1 class="title">
-      <a class="title-link" href="https://kareemelsadek.github.io/posts/adcomp/">
-        
-      </a>
-    </h1>
-    <h1 id="best-platform-to-learn-ad-compromising-htbthm">
-  Best platform to learn AD compromising (HTB\THM)
-  <a class="heading-link" href="#best-platform-to-learn-ad-compromising-htbthm">
-    <i class="fa fa-link" aria-hidden="true"></i>
-  </a>
-</h1>
-<p><img src="http://www.thatlazyadmin.com/wp-content/uploads/2017/08/logo-active-directory.png" alt="http://www.thatlazyadmin.com/wp-content/uploads/2017/08/logo-active-directory.png"></p>
-<h3 id="why-i-am-writing-this-blog">
-  <em><strong>Why I am writing this blog?</strong></em>
-  <a class="heading-link" href="#why-i-am-writing-this-blog">
-    <i class="fa fa-link" aria-hidden="true"></i>
-  </a>
-</h3>
-<p>The main reason I’m writing this blog is to share with you my personal experience in learning Active-Directory pentesting which I needed to learn in order to build my C2-framework.</p>
-<p>That’s why this blog intended to guide you to gain great knowledge while saving huge amount of time, and that’s by covering the following points:</p>
-<ul>
-<li><strong>Active Directory</strong></li>
-<li><strong>Mistakes have done before learning</strong></li>
-<li><strong>TryHackMe Module</strong></li>
-<li><strong>HackTheBox Academy &amp; its module</strong></li>
-<li><strong>Simple comparison</strong></li>
-<li><strong>Which platform to choose</strong></li>
-</ul>
-<h3 id="active-directory">
-  Active Directory
-  <a class="heading-link" href="#active-directory">
-    <i class="fa fa-link" aria-hidden="true"></i>
-  </a>
-</h3>
-<p>A directory service for Windows enterprise environments. It is a distributed, hierarchical structure that allows for centralized management of an organization’s resources, including users, computers, groups, network devices and file shares, group policies, devices, and trusts.</p>
-<p>The purpose of Active Directory is to enable organizations to keep their network secure and organized without having to use up excessive IT resources. For example, with AD, network administrators don’t have to manually update every change to the hierarchy or objects on every computer on the network. They simply do it once in Active Directory. It’s also necessary for managing security authentication.</p>
-<h3 id="mistakes-have-been-done-before-learning">
-  <strong>Mistakes have been done before learning</strong>
-  <a class="heading-link" href="#mistakes-have-been-done-before-learning">
-    <i class="fa fa-link" aria-hidden="true"></i>
-  </a>
-</h3>
-<p>Depending on the good experience with TryHackMe Rooms, by which I have learned some good stuff in Linux&amp; Windows fundamentals &amp; Priv-Esc and a lot of CTF machines. I jumped into AD module in THM without doing any research  or checking main topics in the AD pentesting. That wasted quite a bit of time</p>
-<h3 id="tryhackme-module">
-  <strong>TryHackMe Module</strong>
-  <a class="heading-link" href="#tryhackme-module">
-    <i class="fa fa-link" aria-hidden="true"></i>
-  </a>
-</h3>
-<p>After I had finished the <a href="https://tryhackme.com/module/hacking-active-directory">AD-Pentesting module</a> in THM, I was in a discussion with an experienced mentor about AD pentesting to find out that all what I learned is a very basic narrow scope compared to real required experience in AD pentesting in assessments. Then he recommended HTB-Academy which he had with it a great experience with AD &amp; web pentesting and others.</p>
-<h3 id="hackthebox-academy--its-module">
-  <strong>HackTheBox Academy &amp; its module</strong>
-  <a class="heading-link" href="#hackthebox-academy--its-module">
-    <i class="fa fa-link" aria-hidden="true"></i>
-  </a>
-</h3>
-<ul>
-<li><em><strong>HackTheBox:</strong></em> Hack The Box is a massive, online cybersecurity training platform, allowing individuals, companies, universities and all kinds of organizations around the world to level up their hacking skills.</li>
-<li><em><strong>HTB Academy</strong></em> is a real &lsquo;University for Hackers,&rsquo; which is learning users step-by-step the cybersecurity theory All the way from guided to exploratory learning, learn how to hack and develop the hacking mindset that will enable you to assess and create secure systems.</li>
-<li>Once I had started in <a href="https://academy.hackthebox.com/module/details/143">AD-Pentesting module</a>, I was surprised with the organized content. It has a powerful detailed content with heavy real life scenarios, great defensive considerations understanding, clear vision &amp; powerful methodology, wide scope for every attack or Enum step (from Linux &amp; Windows and different privileges consideration), final Labs to application these knowledge, and simple &amp; clear explanation methods.</li>
-</ul>
-<h3 id="simple-comparison">
-  <strong>Simple comparison</strong>
-  <a class="heading-link" href="#simple-comparison">
-    <i class="fa fa-link" aria-hidden="true"></i>
-  </a>
-</h3>
-<ul>
-<li>Here&rsquo;s a simple comparison between some points to clarify the idea:</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>content specs</th>
-<th>HTB</th>
-<th>THM</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>depth</td>
-<td>deeper content &amp; topics with wide scope</td>
-<td>basic narrow scope compared to real experience</td>
-</tr>
-<tr>
-<td>reality</td>
-<td>supported with real scenarios &amp; assessments examples</td>
-<td>weak examples &amp; scenarios</td>
-</tr>
-<tr>
-<td>duration</td>
-<td>7-Days to one-Month</td>
-<td>7-Days to one-Month</td>
-</tr>
-<tr>
-<td>Methodology</td>
-<td>clear &amp; strong Methodology</td>
-<td>very weak &amp; unclear Methodology</td>
-</tr>
-<tr>
-<td>scope</td>
-<td>introduces you with basic attacks concepts, then put you in different attacking environments based on real life scenarios, like: attacking from linux or windows machine, domain-joined or not , with tools or restricted in downloads and so on</td>
-<td>Almost all attacks are restricted in a narrow scenario with a specific tool</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>Some important topics aren’t covered in THM:
-<ul>
-<li>External Recon</li>
-<li>Some initial Enumeration techniques ( with creds &amp; without )</li>
-<li>Living off the land ( some tight Enum scenarios )</li>
-<li>Hardening Active Directory</li>
-<li>Additional AD Auditing Techniques</li>
-<li>Big overview assessment</li>
-</ul>
-</li>
-</ul>
-<h3 id="which-platform-to-choose">
-  <strong>Which platform to choose</strong>
-  <a class="heading-link" href="#which-platform-to-choose">
-    <i class="fa fa-link" aria-hidden="true"></i>
-  </a>
-</h3>
-<p>I would really recommend to start AD pentesting with HTB-Academy and don&rsquo;t waste time with it in THM if you are looking for deeper understanding and even faster learning.</p>
-
-    <ul></ul>
-
-    
-
-
-
-
-
-
-  </section>
-
-    </div>
-
-    <footer class="footer">
-  <section class="container">
-    ©
-    
-    2022
-     Kareem ALsadeq 
-    ·
-    
-    Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
-    
-  </section>
-</footer>
-
-  </main>
-
-  
-  
-  <script src="/js/coder.min.95c87ce84e6a12567a7de2ec1bf4cd9bd1affff21ebbba9398b7130116893991.js" integrity="sha256-lch86E5qElZ6feLsG/TNm9Gv//Ieu7qTmLcTARaJOZE="></script>
-  
-
-  
-
-  
-
-  <script>
-(function(f, a, t, h, o, m){
-	a[h]=a[h]||function(){
-		(a[h].q=a[h].q||[]).push(arguments)
-	};
-	o=f.createElement('script'),
-	m=f.getElementsByTagName('script')[0];
-	o.async=1; o.src=t; o.id='fathom-script';
-	m.parentNode.insertBefore(o,m)
-})(document, window, '//cdn.usefathom.com/tracker.js', 'fathom');
-fathom('set', 'siteId', 'ABCDE');
-fathom('trackPageview');
-</script>
-
-
-  <script async defer data-domain="alsadeq.github.io" src="https://plausible.io/js/plausible.js"></script>
-
-
-  <script data-goatcounter="https://55555.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
-
-
-  
-
-  <script type="application/javascript">
-  var _paq = window._paq = window._paq || [];
-   
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u="https://kareemelsadek.github.io/";
-    _paq.push(['setTrackerUrl', u+'matomo.php']);
-    _paq.push(['setSiteId', 'ABCDE']);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-  })();
-</script>
-
-
-  
-<script async src="https://www.googletagmanager.com/gtag/js?id=gid"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'gid');
-</script>
-
-
-  <script type="text/javascript">
-    !function(T,l,y){var S=T.location,k="script",D="connectionString",C="ingestionendpoint",I="disableExceptionTracking",E="ai.device.",b="toLowerCase",w="crossOrigin",N="POST",e="appInsightsSDK",t=y.name||"appInsights";(y.name||T[e])&&(T[e]=t);var n=T[t]||function(d){var g=!1,f=!1,m={initialize:!0,queue:[],sv:"5",version:2,config:d};function v(e,t){var n={},a="Browser";return n[E+"id"]=a[b](),n[E+"type"]=a,n["ai.operation.name"]=S&&S.pathname||"_unknown_",n["ai.internal.sdkVersion"]="javascript:snippet_"+(m.sv||m.version),{time:function(){var e=new Date;function t(e){var t=""+e;return 1===t.length&&(t="0"+t),t}return e.getUTCFullYear()+"-"+t(1+e.getUTCMonth())+"-"+t(e.getUTCDate())+"T"+t(e.getUTCHours())+":"+t(e.getUTCMinutes())+":"+t(e.getUTCSeconds())+"."+((e.getUTCMilliseconds()/1e3).toFixed(3)+"").slice(2,5)+"Z"}(),name:"Microsoft.ApplicationInsights."+e.replace(/-/g,"")+"."+t,sampleRate:100,tags:n,data:{baseData:{ver:2}}}}var h=d.url||y.src;if(h){function a(e){var t,n,a,i,r,o,s,c,u,p,l;g=!0,m.queue=[],f||(f=!0,t=h,s=function(){var e={},t=d.connectionString;if(t)for(var n=t.split(";"),a=0;a<n.length;a++){var i=n[a].split("=");2===i.length&&(e[i[0][b]()]=i[1])}if(!e[C]){var r=e.endpointsuffix,o=r?e.location:null;e[C]="https://"+(o?o+".":"")+"dc."+(r||"services.visualstudio.com")}return e}(),c=s[D]||d[D]||"",u=s[C],p=u?u+"/v2/track":d.endpointUrl,(l=[]).push((n="SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details)",a=t,i=p,(o=(r=v(c,"Exception")).data).baseType="ExceptionData",o.baseData.exceptions=[{typeName:"SDKLoadFailed",message:n.replace(/\./g,"-"),hasFullStack:!1,stack:n+"\nSnippet failed to load ["+a+"] -- Telemetry is disabled\nHelp Link: https://go.microsoft.com/fwlink/?linkid=2128109\nHost: "+(S&&S.pathname||"_unknown_")+"\nEndpoint: "+i,parsedStack:[]}],r)),l.push(function(e,t,n,a){var i=v(c,"Message"),r=i.data;r.baseType="MessageData";var o=r.baseData;return o.message='AI (Internal): 99 message:"'+("SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details) ("+n+")").replace(/\"/g,"")+'"',o.properties={endpoint:a},i}(0,0,t,p)),function(e,t){if(JSON){var n=T.fetch;if(n&&!y.useXhr)n(t,{method:N,body:JSON.stringify(e),mode:"cors"});else if(XMLHttpRequest){var a=new XMLHttpRequest;a.open(N,t),a.setRequestHeader("Content-type","application/json"),a.send(JSON.stringify(e))}}}(l,p))}function i(e,t){f||setTimeout(function(){!t&&m.core||a()},500)}var e=function(){var n=l.createElement(k);n.src=h;var e=y[w];return!e&&""!==e||"undefined"==n[w]||(n[w]=e),n.onload=i,n.onerror=a,n.onreadystatechange=function(e,t){"loaded"!==n.readyState&&"complete"!==n.readyState||i(0,t)},n}();y.ld<0?l.getElementsByTagName("head")[0].appendChild(e):setTimeout(function(){l.getElementsByTagName(k)[0].parentNode.appendChild(e)},y.ld||0)}try{m.cookie=l.cookie}catch(p){}function t(e){for(;e.length;)!function(t){m[t]=function(){var e=arguments;g||m.queue.push(function(){m[t].apply(m,e)})}}(e.pop())}var n="track",r="TrackPage",o="TrackEvent";t([n+"Event",n+"PageView",n+"Exception",n+"Trace",n+"DependencyData",n+"Metric",n+"PageViewPerformance","start"+r,"stop"+r,"start"+o,"stop"+o,"addTelemetryInitializer","setAuthenticatedUserContext","clearAuthenticatedUserContext","flush"]),m.SeverityLevel={Verbose:0,Information:1,Warning:2,Error:3,Critical:4};var s=(d.extensionConfig||{}).ApplicationInsightsAnalytics||{};if(!0!==d[I]&&!0!==s[I]){var c="onerror";t(["_"+c]);var u=T[c];T[c]=function(e,t,n,a,i){var r=u&&u(e,t,n,a,i);return!0!==r&&m["_"+c]({message:e,url:t,lineNumber:n,columnNumber:a,error:i}),r},d.autoExceptionInstrumented=!0}return m}(y.cfg);function a(){y.onInit&&y.onInit(n)}(T[t]=n).queue&&0===n.queue.length?(n.queue.push(a),n.trackPageView({})):a()}(window,document,{
-    src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js", 
-    
-    
-    
-    crossOrigin: "anonymous", 
-    
-    cfg: { 
-        connectionString: "connectionstring"
-         
-    }});
-    </script>    
-
-<script type="text/javascript">
-    let whoami = document.querySelector(".navigation-title h3");
-    let textContent = whoami.textContent;
-    whoami.textContent = "";
-    let i = 0;
-    let addLetters = setInterval(() =>{
-      whoami.textContent += textContent[i];
-      i++;
-      i == textContent.length ? clearInterval(addLetters) : "";
-    },300)
-
-  </script>
-</body>
-
-</html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Best platform to learn AD compromising (HTB\THM)</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="b64328b8-a21a-4702-b9ec-d91a6213ef6f" class="page sans"><header><h1 class="page-title">Best platform to learn AD compromising (HTB\THM)</h1></header><div class="page-body"><figure id="13b5b3e7-93d0-42fc-a042-0d0ca045bc6f" class="image"><a href="http://www.thatlazyadmin.com/wp-content/uploads/2017/08/logo-active-directory.png"><img style="width:624px" src="http://www.thatlazyadmin.com/wp-content/uploads/2017/08/logo-active-directory.png"/></a></figure><h3 id="d8142373-0afa-4e42-ad70-5074b497c833" class=""><strong>Why I am writing this blog?</strong></h3><p id="205fc423-df72-48f8-b1ad-a3d7ca9f148d" class="">The main reason I’m writing this blog is to share with you my personal experience in learning Active-Directory pentesting which I needed to learn in order to build my C2-framework.</p><p id="8f842b5c-424f-4a21-8a4d-1855d3574bd5" class=""> That’s why this blog intended to guide you to gain great knowledge while saving huge amount of time, and that’s by covering the following points:</p><ul id="61ca6ff7-cbca-4d8c-9949-9a511eaeed1a" class="bulleted-list"><li style="list-style-type:disc"><strong>Active Directory</strong></li></ul><ul id="dcce0917-7987-4c3d-90c7-a0b0a7733e14" class="bulleted-list"><li style="list-style-type:disc">M<strong>istakes have done before learning</strong></li></ul><ul id="b5488b1e-9e56-44a9-995f-3063957fa98b" class="bulleted-list"><li style="list-style-type:disc"><strong>TryHackMe Module  </strong></li></ul><ul id="47b43e99-2046-4ba2-8287-f6ebb4281c62" class="bulleted-list"><li style="list-style-type:disc"><strong>HackTheBox Academy &amp; its module</strong></li></ul><ul id="7d55a734-609d-4bde-8e64-fac66c1126ac" class="bulleted-list"><li style="list-style-type:disc"><strong>Simple comparison</strong></li></ul><ul id="3d2ed21a-a3b5-4045-b9c9-a872a8be5ae2" class="bulleted-list"><li style="list-style-type:disc"><strong>Which platform to choose</strong></li></ul><p id="f2f9e0ae-55ee-46da-a6b2-8fafdf4f4a52" class="">
+</p><hr id="1e8780e7-6536-4451-b39c-68706cb71c62"/><p id="ea567077-d6a0-43f4-be3e-2d956c90845e" class="">
+</p><h3 id="5a5ef106-27b4-455f-886f-6feaa938f778" class="">Active Directory</h3><p id="e5648025-6374-4d6c-b956-44cae7bd0aa6" class="">A directory service for Windows enterprise environments. It is a distributed, hierarchical structure that allows for centralized management of an organization’s resources, including users, computers, groups, network devices and file shares, group policies, devices, and trusts.</p><p id="afbc365f-58ba-48e1-8244-2bb11b01a7dc" class="">The purpose of Active Directory is to enable organizations to keep their network secure and organized without having to use up excessive IT resources. For example, with AD, network administrators don’t have to manually update every change to the hierarchy or objects on every computer on the network. They simply do it once in Active Directory. It’s also necessary for managing security authentication.</p><p id="3b6460d1-920d-478c-a68f-31726c109a60" class="">
+</p><hr id="608bca49-d288-4ab1-8110-8fc5ece26380"/><p id="29dcd17b-12cd-4dfc-b00b-d517ef129707" class="">
+</p><h3 id="327c2ed3-c7c1-4dbb-84f9-75abfc0ca12e" class="">M<strong>istakes have done before learning</strong></h3><p id="3929a8c4-c49a-4832-bf9c-8227442285d5" class="">Depending on the good experience with TryHackMe Rooms, by which I have learned some good stuff in Linux&amp; Windows fundamentals &amp; Priv-Esc and a lot of CTF machines. I jumped into AD module in THM without doing any research  or checking main topics in the AD pentesting. That wasted quite a bit of time</p><p id="ba7b3a18-ef30-4f0f-8987-3f71de3a524c" class="">
+</p><hr id="3a75bc20-611b-4fe9-93fc-69cacb11d656"/><p id="0accb9c2-c83c-4a3c-822b-867e9fd2bca8" class="">
+</p><h3 id="07d72df3-ff11-4a47-9d07-e886ed9e1862" class=""><strong>TryHackMe Module</strong></h3><p id="9be2db95-0233-497e-afc0-1a48b3d54f74" class="">After I had finished the <a href="https://tryhackme.com/module/hacking-active-directory">AD-Pentesting module</a> in THM, I was in a discussion with an experienced mentor about AD pentesting to find out that all what I learned is a very basic narrow scope compared to real required experience in AD pentesting in assessments. Then he recommended HTB-Academy which he had with it a great experience with AD &amp; web pentesting and others.</p><p id="0cbb20bc-36b9-45f3-9e35-3d3dfa1e96aa" class="">
+</p><hr id="c8913070-f73d-47cb-ac13-f349a0d1d4d9"/><p id="273726f1-406c-4ff4-be20-468ef49edb8f" class="">
+</p><h3 id="2cfc997f-d15c-4b0d-bcf9-3bb7d0236ae3" class=""><strong>HackTheBox Academy &amp; its module</strong></h3><ul id="e1fdd40f-e3f1-4b03-a62b-63f3d699c057" class="bulleted-list"><li style="list-style-type:disc"><span style="border-bottom:0.05em solid"><em><strong>HackTheBox:</strong></em></span><em><strong> </strong></em>Hack The Box is a massive, online cybersecurity training platform, allowing individuals, companies, universities and all kinds of organizations around the world to level up their hacking skills.</li></ul><ul id="82a32f6f-f0b4-4382-9d41-69c018f6deaa" class="bulleted-list"><li style="list-style-type:disc"><em><strong><span style="border-bottom:0.05em solid">HTB Academy</span></strong></em> is a real &#x27;University for Hackers,&#x27; which is learning users step-by-step the cybersecurity theory All the way from guided to exploratory learning, learn how to hack and develop the hacking mindset that will enable you to assess and create secure systems.</li></ul><ul id="c63ccdaa-7b49-4bb8-b32a-656938fc9387" class="bulleted-list"><li style="list-style-type:disc">Once I had started in <a href="https://academy.hackthebox.com/module/details/143">AD-Pentesting module</a>, I was surprised with the organized content. It has a powerful detailed content with heavy real life scenarios, great defensive considerations understanding, clear vision &amp; powerful methodology, wide scope for every attack or Enum step (from Linux &amp; Windows and different privileges consideration), final Labs to application these knowledge, and simple &amp; clear explanation methods.</li></ul><p id="445fe59b-61eb-49fe-b8bf-9c294a261562" class="">
+</p><hr id="30bd26ff-00f9-4e40-b0a3-b7ab639fa139"/><p id="34cf8d04-6b8c-4b0f-be2a-d456f78a3c7e" class="">
+</p><h3 id="7dd16bd2-ed52-4945-8d2e-00883267d8e2" class=""><strong>Simple comparison</strong></h3><ul id="163601f5-a5cc-4a2a-92cb-8932cce2f8f7" class="bulleted-list"><li style="list-style-type:disc">Here&#x27;s a simple comparison between some points to clarify the idea:</li></ul><table id="1ebbb1eb-9936-4aa2-a571-213851359691" class="simple-table"><thead class="simple-table-header"><tr id="89480bd7-59f0-4f48-9b82-da0f477c92d6"><th id="gL`Q" class="simple-table-header-color simple-table-header">content specs </th><th id="?:wQ" class="simple-table-header-color simple-table-header">                           HTB</th><th id="O{G;" class="simple-table-header-color simple-table-header">                       THM</th></tr></thead><tbody><tr id="7dd7c2dc-ac07-4a60-9bac-d867dacace50"><th id="gL`Q" class="simple-table-header-color simple-table-header">depth</th><td id="?:wQ" class="">deeper content &amp; topics with wide scope</td><td id="O{G;" class="">basic narrow scope compared to real experience</td></tr><tr id="4cbd16e0-b599-4be3-8606-fc698e6aecaa"><th id="gL`Q" class="simple-table-header-color simple-table-header">reality</th><td id="?:wQ" class="">supported with real scenarios &amp; assessments examples</td><td id="O{G;" class="">weak examples &amp; scenarios</td></tr><tr id="1b88fb9f-5e0a-4ff2-8e8d-5b1daf7b9301"><th id="gL`Q" class="simple-table-header-color simple-table-header">duration</th><td id="?:wQ" class="">7-Days to one-Month</td><td id="O{G;" class="">7-Days to one-Month</td></tr><tr id="5ab99693-5ee5-4186-ba11-d5622c4f1d8f"><th id="gL`Q" class="simple-table-header-color simple-table-header">Methodology</th><td id="?:wQ" class="">clear &amp; strong Methodology</td><td id="O{G;" class="">very weak &amp; unclear Methodology</td></tr><tr id="d1063487-6a15-4961-ad28-3ce92a3f0860"><th id="gL`Q" class="simple-table-header-color simple-table-header">scope</th><td id="?:wQ" class="">introduces you with basic attacks concepts, then put you in different attacking environments based on real life scenarios, like: attacking from linux or windows machine, domain-joined or not , with tools or restricted in downloads and so on</td><td id="O{G;" class="">Almost all attacks are restricted in a narrow scenario with a specific tool</td></tr></tbody></table><ul id="fdeb9675-cf23-42b5-a136-234332f3f67b" class="bulleted-list"><li style="list-style-type:disc">Some important topics aren’t covered in THM:<ul id="695369d6-1a5a-4c88-aff2-7b915bd08025" class="bulleted-list"><li style="list-style-type:circle">External Recon </li></ul><ul id="0af2b433-c505-432c-8d03-1cbf6816ed08" class="bulleted-list"><li style="list-style-type:circle">Some initial Enumeration techniques ( with creds &amp; without )</li></ul><ul id="0b4ec4b4-7b65-4fb5-ba16-cf55b8690368" class="bulleted-list"><li style="list-style-type:circle">Living off the land ( some tight Enum scenarios )</li></ul><ul id="f0b04071-df1b-47a6-b465-5870ba9b1cd8" class="bulleted-list"><li style="list-style-type:circle">Hardening Active Directory</li></ul><ul id="f9b07a35-b116-479f-b96e-5a47c051dd78" class="bulleted-list"><li style="list-style-type:circle">Additional AD Auditing Techniques</li></ul><ul id="b7448e2f-adc3-4568-9475-70d848b0956b" class="bulleted-list"><li style="list-style-type:circle">Big overview assessment</li></ul><p id="0279cf16-3118-488c-899b-cb034b877f7d" class="">
+</p></li></ul><hr id="76e9670e-6ae6-47fa-9dda-908d218d1160"/><p id="fddb1869-687a-4ce8-9de4-66f1e94f58de" class="">
+</p><h3 id="245b04d1-898e-46d4-9a73-10979229fa9f" class=""><strong>Which platform to choose</strong></h3><p id="d62b1767-54ef-4beb-aff6-fd4ed7ecdab7" class="">I would really recommend to start AD pentesting with HTB-Academy and don&#x27;t waste time with it in THM if you are looking for deeper understanding and even faster learning.</p><p id="80686523-0546-425d-aedb-208651b8ff1f" class="">
+</p></div></article></body></html>
