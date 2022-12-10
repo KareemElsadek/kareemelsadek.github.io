@@ -1,0 +1,16 @@
+--2022-12-09 21:25:13--  http://www.thatlazyadmin.com/wp-content/uploads/2017/08/logo-active-directory.png
+Resolving www.thatlazyadmin.com (www.thatlazyadmin.com)... 154.0.167.58
+Connecting to www.thatlazyadmin.com (www.thatlazyadmin.com)|154.0.167.58|:80... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://thatlazyadmin.com/wp-content/uploads/2017/08/logo-active-directory.png [following]
+--2022-12-09 21:25:14--  https://thatlazyadmin.com/wp-content/uploads/2017/08/logo-active-directory.png
+Resolving thatlazyadmin.com (thatlazyadmin.com)... 154.0.167.58
+Connecting to thatlazyadmin.com (thatlazyadmin.com)|154.0.167.58|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 17657 (17K) [image/png]
+Saving to: ‘logo-active-directory.png’
+
+     0K .......... .......                                    100%  245M=0s
+
+2022-12-09 21:25:16 (245 MB/s) - ‘logo-active-directory.png’ saved [17657/17657]
+
