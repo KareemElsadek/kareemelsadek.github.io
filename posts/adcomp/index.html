@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <style type="text/css">
+  ul li strong {
+    margin-left: 20px;
+  }
   .navigation-title h3 {
        
       font-weight: bold;
@@ -38,6 +41,21 @@
     }
   }
 </style>
+<style>
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid;
+    padding: 8px;
+  }
+  
+
+  </style>
+
 <head>
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -188,12 +206,12 @@ Active Directory Mistakes have done before learning TryHackMe Module HackTheBox 
 <p>The main reason I’m writing this blog is to share with you my personal experience in learning Active-Directory pentesting which I needed to learn in order to build my C2-framework.</p>
 <p>That’s why this blog intended to guide you to gain great knowledge while saving huge amount of time, and that’s by covering the following points:</p>
 <ul>
-<li><strong>Active Directory</strong></li>
-<li><strong>Mistakes have done before learning</strong></li>
-<li><strong>TryHackMe Module</strong></li>
-<li><strong>HackTheBox Academy &amp; its module</strong></li>
-<li><strong>Simple comparison</strong></li>
-<li><strong>Which platform to choose</strong></li>
+<li><strong>• Active Directory</strong></li>
+<li><strong>• Mistakes have done before learning</strong></li>
+<li><strong>• TryHackMe Module</strong></li>
+<li><strong>• HackTheBox Academy &amp; its module</strong></li>
+<li><strong>• Simple comparison</strong></li>
+<li><strong>• Which platform to choose</strong></li>
 </ul>
 <h3 id="active-directory">
   Active Directory
@@ -224,9 +242,9 @@ Active Directory Mistakes have done before learning TryHackMe Module HackTheBox 
   </a>
 </h3>
 <ul>
-<li><em><strong>HackTheBox:</strong></em> Hack The Box is a massive, online cybersecurity training platform, allowing individuals, companies, universities and all kinds of organizations around the world to level up their hacking skills.</li>
-<li><em><strong>HTB Academy</strong></em> is a real &lsquo;University for Hackers,&rsquo; which is learning users step-by-step the cybersecurity theory All the way from guided to exploratory learning, learn how to hack and develop the hacking mindset that will enable you to assess and create secure systems.</li>
-<li>Once I had started in <a href="https://academy.hackthebox.com/module/details/143">AD-Pentesting module</a>, I was surprised with the organized content. It has a powerful detailed content with heavy real life scenarios, great defensive considerations understanding, clear vision &amp; powerful methodology, wide scope for every attack or Enum step (from Linux &amp; Windows and different privileges consideration), final Labs to application these knowledge, and simple &amp; clear explanation methods.</li>
+<strong>• HackTheBox</strong> Hack The Box is a massive, online cybersecurity training platform, allowing individuals, companies, universities and all kinds of organizations around the world to level up their hacking skills.</li>
+<br><br><strong>• HTB Academy</strong> is a real &lsquo;University for Hackers,&rsquo; which is learning users step-by-step the cybersecurity theory All the way from guided to exploratory learning, learn how to hack and develop the hacking mindset that will enable you to assess and create secure systems.
+<br><br><strong>•</strong> Once I had started in <a href="https://academy.hackthebox.com/module/details/143">AD-Pentesting module</a>, I was surprised with the organized content. It has a powerful detailed content with heavy real life scenarios, great defensive considerations understanding, clear vision &amp; powerful methodology, wide scope for every attack or Enum step (from Linux &amp; Windows and different privileges consideration), final Labs to application these knowledge, and simple &amp; clear explanation methods.</li>
 </ul>
 <h3 id="simple-comparison">
   <strong>Simple comparison</strong>
@@ -235,53 +253,51 @@ Active Directory Mistakes have done before learning TryHackMe Module HackTheBox 
   </a>
 </h3>
 <ul>
-<li>Here&rsquo;s a simple comparison between some points to clarify the idea:</li>
+<li>• Here&rsquo;s a simple comparison between some points to clarify the idea:</li>
 </ul>
-<table>
-<thead>
+<table border = "1" cellpadding = "5" cellspacing = "5">
 <tr>
 <th>content specs</th>
 <th>HTB</th>
 <th>THM</th>
 </tr>
-</thead>
-<tbody>
 <tr>
-<td>depth</td>
+<th>depth</th>
 <td>deeper content &amp; topics with wide scope</td>
 <td>basic narrow scope compared to real experience</td>
 </tr>
 <tr>
-<td>reality</td>
+<th>reality</th >
 <td>supported with real scenarios &amp; assessments examples</td>
 <td>weak examples &amp; scenarios</td>
 </tr>
 <tr>
-<td>duration</td>
+<th>duration</th>
 <td>7-Days to one-Month</td>
 <td>7-Days to one-Month</td>
 </tr>
 <tr>
-<td>Methodology</td>
+<th>Methodology</th>
 <td>clear &amp; strong Methodology</td>
 <td>very weak &amp; unclear Methodology</td>
 </tr>
 <tr>
-<td>scope</td>
+<th>scope</th>
 <td>introduces you with basic attacks concepts, then put you in different attacking environments based on real life scenarios, like: attacking from linux or windows machine, domain-joined or not , with tools or restricted in downloads and so on</td>
 <td>Almost all attacks are restricted in a narrow scenario with a specific tool</td>
 </tr>
-</tbody>
 </table>
 <ul>
-<li>Some important topics aren’t covered in THM:
+  <br>
+<li><p>• Some important topics aren't <br>covered in THM:</p>
 <ul>
-<li>External Recon</li>
-<li>Some initial Enumeration techniques ( with creds &amp; without )</li>
-<li>Living off the land ( some tight Enum scenarios )</li>
-<li>Hardening Active Directory</li>
-<li>Additional AD Auditing Techniques</li>
-<li>Big overview assessment</li>
+  <br>
+<li>○ External Recon</li>
+<li>○ Some initial Enumeration techniques (with creds &amp; without)</li>
+<li>○ Living off the land (some tight Enum scenarios)</li>
+<li>○ Hardening Active Directory</li>
+<li>○ Additional AD Auditing Techniques</li>
+<li>○ Big overview assessment</li>
 </ul>
 </li>
 </ul>
@@ -295,13 +311,7 @@ Active Directory Mistakes have done before learning TryHackMe Module HackTheBox 
 
     <ul></ul>
 
-    
-
-
-
-
-
-
+  
   </section>
 
     </div>
@@ -409,4 +419,7 @@ fathom('trackPageview');
 </body>
 
 </html>
+
+
+
 
