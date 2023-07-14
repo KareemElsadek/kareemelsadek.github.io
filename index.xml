@@ -17,6 +17,15 @@
     </item>
     
     <item>
+      <title>File Upload</title>
+      <link>https://kareemelsadek.github.io/notes/fileupload/</link>
+      <pubDate>Fri, 22 Jul 2022 18:35:13 -0400</pubDate>
+      
+      <guid>https://kareemelsadek.github.io/notes/fileupload/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>GraphQL</title>
       <link>https://kareemelsadek.github.io/posts/graphql/</link>
       <pubDate>Fri, 22 Jul 2022 18:35:13 -0400</pubDate>
@@ -26,12 +35,30 @@
     </item>
     
     <item>
+      <title>Tamper</title>
+      <link>https://kareemelsadek.github.io/posts/tamper/</link>
+      <pubDate>Fri, 22 Jul 2022 18:35:13 -0400</pubDate>
+      
+      <guid>https://kareemelsadek.github.io/posts/tamper/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title></title>
       <link>https://kareemelsadek.github.io/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://kareemelsadek.github.io/about/</guid>
-      <description> COURSES eWPTXv2 eWPTv3 P|CEH (TCM) CCNA Introduction to computer science using python (MIT) Achivements Recorded among the top 10 at Arab Security Cyber Wargames Managed to reach the top 10 in Egypt scale(Hacker-rank) Summer Cybersecurity program Instructor at faculty of engineering Helwan university Former CTF player &amp;amp; developer at 0xL4ugh team Valid vulns at IBM </description>
+      <description>COURSES eWPTXv2 eWPTv3 P|CEH (TCM) CCNA Introduction to computer science using python (MIT) Achivements Recorded among the top 10 at Arab Security Cyber Wargames Managed to reach the top 10 in Egypt scale(Hacker-rank) Summer Cybersecurity program Instructor at faculty of engineering Helwan university Former CTF player &amp;amp; developer at 0xL4ugh team Valid vulns at IBM </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://kareemelsadek.github.io/notes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kareemelsadek.github.io/notes/</guid>
+      <description>sectionPagesMenu = &amp;lsquo;main&amp;rsquo;</description>
     </item>
     
   </channel>

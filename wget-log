@@ -1,0 +1,6 @@
+--2023-07-10 17:54:01--  https://media.discordapp.net/attachments/988219428342738958/1128081611670425752/image.png?width=807
+Resolving media.discordapp.net (media.discordapp.net)... 162.159.134.232, 162.159.133.232, 162.159.129.232, ...
+Connecting to media.discordapp.net (media.discordapp.net)|162.159.134.232|:443... connected.
+HTTP request sent, awaiting response... 400 Bad Request
+2023-07-10 17:54:01 ERROR 400: Bad Request.
+
