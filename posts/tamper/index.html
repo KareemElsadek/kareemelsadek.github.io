@@ -364,7 +364,7 @@
                 The default mode in SqlMap will fail here because any injection it tries will result in a <strong>500</strong> error because of the hash.
             </li>
             <li>
-                So now we can write a custom tamper script to bypass this restriction by encrypting each payload with the salt, reaching the exploitation.
+                So now we can write a custom tamper script to bypass this restriction by encrypting each payload with the salt, reaching exploitation.
             </li>
             <li>
                 The trick here is that the return of the tamper script will be added to each injectable parameter in the request. After troubleshooting by using <code class="code-style">--proxy</code> to see sqlmap traffic through Burp History, I finally came up with this simple script:
@@ -386,11 +386,14 @@
             <li>
                 Then exploit with the following sqlmap command:
                 <pre><code class="code-style">
-    sqlmap -u "http://10.10.10.231/products-ajax.php?order=id+desc" --tamper=/customtamper/custom_tamper.py --dbs
+    sqlmap -u "http://10.10.10.231/products-ajax.php?order=id+desc" --tamper=/customtamper/custom_tamper.py --skip-urlencode --dbs
                 </code></pre>
             </li>
             <li>
-                As we can notice in the sqlmap command, I removed the <code class="code-style">h</code> parameter, which will be added with the custom values generated through our tamper script.
+                As we can notice in the sqlmap command, I removed the <code class="code-style">h</code> parameter, which will be added with the custom values generated through our tamper script.		    
+            </li>
+            <li>
+                <code class="code-style">--skip-urlencode</code> option to avoid <code class="code-style">h</code> parameter from being a part from the encoded payload, and be a separated parameter as required		    
             </li>
         </ul>
         <h3>Refrences:</h3>
