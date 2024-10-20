@@ -42,6 +42,15 @@
       <guid>https://kareemelsadek.github.io/posts/tamper/</guid>
       <description></description>
     </item>
+
+    <item>
+      <title>Dirty Dance with Auth0</title>
+      <link>https://kareemelsadek.github.io/posts/exploiting-auth0-misconfiguration/</link>
+      <pubDate>Fri, 22 Jul 2022 18:35:13 -0400</pubDate>
+      
+      <guid>https://kareemelsadek.github.io/posts/exploiting-auth0-misconfiguration/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title></title>
