@@ -61,7 +61,8 @@
     }
 </style>
 <head>
-
+  <!-- Responsive text -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 
   <title>ALsadeq</title>
 
@@ -154,7 +155,7 @@
 <div class="content">
     <section class="container ">
         <h1>Recursive Organizations Takeover through the Invitation Flow</h1>
-        <img src="/org-cover.png" style="margin: auto; display: block;" width="650px">
+        <img src="/org-cover.png" style="margin: auto; display: block;" width="80%">
         <!DOCTYPE html>
         <html lang="en">
         <head>
@@ -246,7 +247,7 @@
          </blockquote>
          <div>
           <h3>Gaining Access to Victim’s Organizations through a Misconfiguration in the Organization Access Token</h3>
-        <img src="/org-flow.png" alt="" style="margin: auto; display: block;" width="500px"></div>
+        <img src="/org-flow.png" alt="" style="margin: auto; display: block;" width="80%"></div>
           <ul>
             <li>The attacker invites a victim who is an admin in another organization.</li>
             <li>Exploit the invitation flow to hijack this victim invitation and log in as the victim to the isolated attacker’s organization.</li>
@@ -254,12 +255,12 @@
             <li>Exploit the token misconfiguration: The token allows <strong>cross-organization access</strong> to <strong>any organization</strong> where the victim is an admin, not just the attacker's one.</li>
             <li>Get the victim's organization ID with the generated token</li>
         
-          <p><img src="/ID.png" ></p>
+          <p><img src="/ID.png" width="80%" ></p>
         
             <li>The attacker can now pick any invitation from the <strong>victim</strong> organization and repeat the same invitation hijacking attack scenario, such as:  <code style="background-color: gray;">https://victim.target.com/user/invitations/&lt;victim&#45;invitation&#45;id&gt;"</code></li>
           
         
-          <p><img src="/invitation.png"></p>
+          <p><img src="/invitation.png" width="80%"></p>
         
           <li><strong>This allows complete hijack of additional users and further escalations with different privileges and maybe with different organizations:</strong></li>
           <p><code style="background-color: gray;">Victim Invitation Hijacking >> Exploit Organization Token Misc >> Recursively hijacking the Victim's Organization users</code></p>
