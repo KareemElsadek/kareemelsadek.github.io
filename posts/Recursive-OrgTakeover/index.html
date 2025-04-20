@@ -1,23 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <style type="text/css">
-
-  .card h4 {
-    margin-top: -10px!important; 
-    font-size: 17px;
+  ul li strong {
+    margin-left: 20px;
   }
-
-  .blog-card {
-  background-color: #1e1e1e;
-  padding: 1.5rem;
-  border-radius: 1rem;
-  box-shadow: 0 0 20px rgba(255,255,255,0.05);
-  transition: transform 0.2s;
-}
-.blog-card:hover {
-  transform: translateY(-5px);
-}
-
   .navigation-title h3 {
        
       font-weight: bold;
@@ -38,6 +24,7 @@
       animation:  sd 1s linear infinite;
 
   }
+  
   @keyframes sd {
     from {
       border-right-color: white;
@@ -54,62 +41,46 @@
       width: 118px ;
     }
   }
+
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid;
+    padding: 8px;
+  }
+  strong{
+    margin: 0 !important;
+  }
+    .code-style {
+      background-color: #1a1d1e !important;
+      color: rgb(213, 209, 203) !important;
+    }
 </style>
 <head>
-  <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="light dark">
-
-
-
-
-<meta name="author" content="Kareem ALsadeq">
-<meta name="description" content="I’m just trying to share some simple knowledge D:">
-<meta name="keywords" content="blog,pentester,personal">
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Articles"/>
-<meta name="twitter:description" content="Kareem Alsadeq&#39;s personal website"/>
-
-<meta property="og:title" content="Articles" />
-<meta property="og:description" content="Kareem Alsadeq&#39;s personal website" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://kareemelsadek.github.io/posts/" />
-
-
 
 
   <title>ALsadeq</title>
 
-  
-  <link rel="canonical" href="https://kareemelsadek.github.io/posts/">
+  <link rel="canonical" href="https://kareemelsadek.github.io/posts/exploiting-auth0-misconfiguration/">
   
 
   <link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0">
 
-
-  
-  
   <link rel="stylesheet" href="/css/coder.min.d0d974af9060db1f638bc87d1142862c434e0df7c8f2272ef0e8ed5590cef186.css">
-
-
-
-
-
-  
-  
-    
     
     <link rel="stylesheet" href="/css/coder-dark.min.01ce5a59759539162fb20573a28d9572f4f718f648ae0c0cb12d0b09bea975bc.css">
-  
 
-
-
-   
-
-
-
-
+    <link rel="stylesheet" href="/css/prism.css">
+      <meta property="og:image" content="/auth0-cover.png" />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://kareemelsadek.github.io/posts/exploiting-auth0-misconfiguration/"/>
+      <meta property="og:title" content="Exploiting Auth0 Misconfiguration: A Case Study on Account Linking Vulnerabilities" />
+      <meta property="og:description" content="Dirty Dance with Auth0"/>	
+ 
   <link rel="icon" type="image/png" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" href="/favicon-16x16.png">
 
@@ -120,13 +91,9 @@
 <link rel="mask-icon" href="/images/safari-pinned-tab.svg">
 
 
-  <link rel="alternate" type="application/rss+xml" href="/posts/index.xml">
 
 
   <meta name="generator" content="Hugo 0.101.0" />
-
-
-  
 
 </head>
 
@@ -166,9 +133,11 @@
             <li class="navigation-item">
               <a class="navigation-link" href="/posts/">Blogs</a>
             </li>
+          
             <li class="navigation-item">
                <a class="navigation-link" href="/notes/" style="pointer-events: none">Notes</a>
             </li>
+            
             <li class="navigation-item">
               <a class="navigation-link" href="/about/">About</a>
             </li>
@@ -180,163 +149,130 @@
   </section>
 </nav>
 
+<script src="/js/prism.js"></script>
 
-    <div class="content">
-      
-  <section class="container list">
+<div class="content">
+    <section class="container ">
+        <h1>Recursive Organizations Takeover through the Invitation Flow</h1>
+        <img src="/org-cover.png" style="margin: auto; display: block;" width="650px">
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <title>Recursive Organizations Takeover through the Invitation Flow</title>
+          <style>
+            body {
+              font-family: Arial, sans-serif;
+              line-height: 1.6;
+              margin: 40px;
+              background-color: #f9f9f9;
+              color: #333;
+            }
+            h1, h2, h3 {
+              color: #222;
+            }
+            pre {
+              background: #eee;
+              padding: 10px;
+              overflow-x: auto;
+            }
+            code {
+              font-family: monospace;
+            }
+            blockquote {
+              margin: 1em 0;
+              padding-left: 1em;
+              border-left: 4px solid #ccc;
+              color: #555;
+            }
+            img {
+              max-width: 100%;
+              height: auto;
+            }
+            a {
+              color: #0366d6;
+              text-decoration: none;
+            }
+            a:hover {
+              text-decoration: underline;
+            }
+            hr {
+              margin: 40px 0;
+            }
+          </style>
+        </head>
+        <body>
+                
+          <p>During a bug bounty activity in a private program, my teammate <a href="https://www.linkedin.com/in/muhammed-mekkawy/">Mekkawy</a> and I discovered and exploited this critical flow through the invitation flow.</p>
+        
+          <h2><strong>Summary</strong></h2>
+        
+          <p>The application implements an organization-based model where each user can join multiple organizations. Each organization is a fully isolated environment with its subdomain and authentication system.</p>
+          <p>The organization admin can issue an administrative access token, which can be used to perform privileged operations (e.g., managing users, modifying settings, etc.) on that specified organization (as it is said :D).</p>
+        
+          <p>During our testing, we identified a critical flaw in the invitation process that leads to full compromising of the victim’s organizations.</p>
+        
+          <p>The scenario can be summarized at some points:</p>
+          <ul>
+            <li>Hijacking invited users using only the invitation ID, without needing the invitation token.</li>
+            <li>Getting into the victim’s account but in the isolated attacker organization without the ability to access the other victim organizations (which seems to be useless)</li>
+            <li>Generating an organization access token as the victim user to the attacker’s organization.</li>
+            <li>Exploit a misconfiguration in the organization access token that allows us to access victim’s <strong>organizations invitations</strong>.</li>
+          </ul>
+        
+          <p>This leads to <strong>full compromise of unrelated victim organizations</strong>, including the ability to list and reuse additional invitation IDs to escalate further.</p>
+        
+          <hr>
+        
+          <h2><strong>Vulnerability Chain</strong></h2>
+        
+          <h3>First stage: Insecure Invitation Flow</h3>
+        
+          <ul>
+            <li>Admins invite users, and a secure email link is sent to the victim that includes a strong invitation Token</li>
+          </ul>
+        
+          <pre><code class="language-javascript">https://attacker.target.com/user/invitations/{invitationToken}</code></pre>
+        
+          <ul>
+            <li>However, the <strong>response to the invite request</strong> discloses an invitation ID.</li>
+            <li>Visiting the invitation endpoint but using the invitation ID, immediately logs into the attacker organization as the invited victim — no interaction, no token, no consent required.</li>
+          </ul>
+        
+          <pre><code class="language-javascript">https://attacker.target.com/user/invitations/{invitation_id}</code></pre>
+          <br>
+          <blockquote class="text" style="color: seagreen;">
+            <p><strong>After spending over three days thoroughly analyzing the application, we aimed to identify another vulnerability to chain with a critical impact.</strong></p>
+         </blockquote>
+         <div>
+          <h3>Gaining Access to Victim’s Organizations through a Misconfiguration in the Organization Access Token</h3>
+        <img src="/org-flow.png" alt="" style="margin: auto; display: block;" width="500px"></div>
+          <ul>
+            <li>The attacker invites a victim who is an admin in another organization.</li>
+            <li>Exploit the invitation flow to hijack this victim invitation and log in as the victim to the isolated attacker’s organization.</li>
+            <li>Generate an organization access token from the victim’s account, which should be specified to the attacker organization.</li>
+            <li>Exploit the token misconfiguration: The token allows <strong>cross-organization access</strong> to <strong>any organization</strong> where the victim is an admin, not just the attacker's one.</li>
+            <li>Get the victim's organization ID with the generated token</li>
+        
+          <p><img src="/ID.png" ></p>
+        
+            <li>The attacker can now pick any invitation from the <strong>victim</strong> organization and repeat the same invitation hijacking attack scenario, such as:  <code style="background-color: gray;">https://victim.target.com/user/invitations/&lt;victim&#45;invitation&#45;id&gt;"</code></li>
+          
+        
+          <p><img src="/invitation.png"></p>
+        
+          <li><strong>This allows complete hijack of additional users and further escalations with different privileges and maybe with different organizations:</strong></li>
+          <p><code style="background-color: gray;">Victim Invitation Hijacking >> Exploit Organization Token Misc >> Recursively hijacking the Victim's Organization users</code></p>
+        </ul>
 
-    <h2>I’m just trying to share some simple knowledge D:</h2>
-
-    <ul><script>
-
-</script>
-<style type="text/css">
-	.card {
-		display: flex;
-		flex-direction: column;
-		width: 500px;
-
-		margin: 20px auto;
-		align-items: center;
-		justify-content: space-between;
-	}
-	.card a {
-		
-	}
-	.card a h3 {
-
-		font-weight: bold;
-		font-size: 35px;
-		margin-bottom: 0;
-		margin-top: 20px;
-		margin-left: 20px;
-
-
-	}
-	.card h4 {
-		margin-top: 12px;
-	}
-	.card img {
-		width: 300px;
-	}
-	@media (min-width: 480px) {
-		.card img {
-			width: 100%;
-		}
-	}
-</style>
-
-<li class="card">
-  <a class="title" name="Auth0 Account Linking Vulnerability" href="/posts/Recursive-OrgTakeover/index.html"><img width="300px" src="/org-cover.png" ></a>
-  
-  <a class="title" name="Auth0 Account Linking Vulnerability" href="/posts/Recursive-OrgTakeover/index.html"><p style="font-size:30px">Full Org Takeover Case</p></a>
-  <h4>[Recursive Organizations Takeover through the Invitation Flow]</h4> 
-</li>
-
-<li class="card">
-  <a class="title" name="Auth0 Account Linking Vulnerability" href="/posts/exploiting-auth0-misconfiguration/"><img width="300px" src="/auth0.png" ></a>
-  
-  <a class="title" name="Auth0 Account Linking Vulnerability" href="/posts/exploiting-auth0-misconfiguration/"><p style="font-size:30px">Dirty Dance with Auth0</p></a>
-  <h4>[Exploiting Auth0 Misconfiguration: A Case Study on Account Linking Vulnerabilities]</h4> 
-</li>
-
-<li class="card">
-  <a class="title" name="GraphQL" href="/posts/tamper/"><img width="300px" src="/sqlmap.png" ></a>
-  
-  <a class="title" name="GraphQL" href="/posts/tamper/"><p style="font-size:30px">Tamper Script</p></a>
-  <h4>[Write your custom Tamper script]</h4>  
-</li>
-<li class="card">
-  <a class="title" name="AD Compromising(HTB/THM)" href="/posts/adcomp/"><img width="300px" src="https://tryhackme-images.s3.amazonaws.com/room-icons/a936e45c948fb10f2eec7768c7a32e66.png" ></a>
-  
-  <a class="title" name="AD Compromising(HTB/THM)" href="/posts/adcomp/"><p style="font-size:30px">AD Compromising (HTB/THM)</p></a>
-  <h4>[Best platform to learn AD compromising]</h4>  
-</li>
-<script type="text/javascript">
-	let links = Array.from(document.querySelectorAll(".card a"));
-	links.forEach((link) => {
-		console.log(link.name);
-		let views = localStorage.getItem(link.name) ? localStorage.getItem(link.name) : 0;
-		link.addEventListener("click", () => {
-			views++;
-			localStorage.setItem(link.name, views);		
-		})
-		localStorage.setItem(link.name, views);		
-	})
-</script>
-<script>
-      document.querySelector("title").textContent = "Blogs";
-</script><script>
-
-</script>
-<style type="text/css">
-	.card {
-		display: flex;
-		flex-direction: column;
-		width: 500px;
-
-		margin: 20px auto;
-		align-items: center;
-		justify-content: space-between;
-	}
-	.card a {
-		
-	}
-	.card a h3 {
-
-		font-weight: bold;
-		font-size: 35px;
-		margin-bottom: 0;
-		margin-top: 20px;
-		margin-left: 20px;
-
-
-	}
-	.card h4 {
-		margin-top: 12px;
-	}
-	.card img {
-		width: 300px;
-	}
-	@media (min-width: 480px) {
-		.card img {
-			width: 100%;
-		}
-	}
-</style>
-<li class="card">
-  <a class="title" name="GraphQL" href="/posts/graphql/"><img width="300px" src="/graph.png" ></a>
-  
-  <a class="title" name="GraphQL" href="/posts/graphql/"><p style="font-size:30px">GraphQL</p></a>
-  <h4>[Simple intro to GraphQL Pentesting]</h4>  
-</li>
-<script type="text/javascript">
-	let links = Array.from(document.querySelectorAll(".card a"));
-	links.forEach((link) => {
-		console.log(link.name);
-		let views = localStorage.getItem(link.name) ? localStorage.getItem(link.name) : 0;
-		link.addEventListener("click", () => {
-			views++;
-			localStorage.setItem(link.name, views);		
-		})
-		localStorage.setItem(link.name, views);		
-	})
-</script>
-<script>
-      document.querySelector("title").textContent = "Blogs";
-</script></ul>
-
-    
+        <b>I hope you enjoyed reading, Thanks :D</b>
+</body>
+        </html>
 
 
 
-
-
-
-  </section>
-
-    </div>
-
+</div>    
+<br><br><br><br><br>
     <footer class="footer">
   <section class="container">
     ©
@@ -435,8 +371,11 @@ fathom('trackPageview');
       i++;
       i == textContent.length ? clearInterval(addLetters) : "";
     },300)
-
   </script>
 </body>
 
 </html>
+
+
+
+
