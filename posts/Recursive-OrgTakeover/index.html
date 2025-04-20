@@ -80,8 +80,8 @@
       <meta property="og:image" content="/org-cover.png" />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://kareemelsadek.github.io/posts/Recursive-OrgTakeover"/>
-      <meta property="og:title" content="Recursive Organizations Takeover through the Invitation Flow" />
-      <meta property="og:description" content="Recursive Organizations Takeover through the Invitation Flow"/>	
+      <meta property="og:title" content="Recursive Organizations Takeover through the Invitation Flaw" />
+      <meta property="og:description" content="Recursive Organizations Takeover through the Invitation Flaw"/>	
  
   <link rel="icon" type="image/png" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" href="/favicon-16x16.png">
@@ -155,13 +155,13 @@
 
 <div class="content">
     <section class="container ">
-        <h1>Recursive Organizations Takeover through the Invitation Flow</h1>
+        <h1>Recursive Organizations Takeover through the Invitation Flaw</h1>
         <img src="/org-cover.png" style="margin: auto; display: block;" width="80%">
         <!DOCTYPE html>
         <html lang="en">
         <head>
           <meta charset="UTF-8">
-          <title>Recursive Organizations Takeover through the Invitation Flow</title>
+          <title>Recursive Organizations Takeover through the Invitation Flaw</title>
           <style>
             body {
               font-family: Arial, sans-serif;
@@ -205,7 +205,7 @@
         </head>
         <body>
                 
-          <p>During a bug bounty activity in a private program, my teammate <a href="https://www.linkedin.com/in/muhammed-mekkawy/">Mekkawy</a> and I discovered and exploited this critical flow through the invitation flow.</p>
+          <p>During a bug bounty activity in a private program, my teammate <a href="https://www.linkedin.com/in/muhammed-mekkawy/">Mekkawy</a> and I discovered and exploited this critical flaw through the invitation process.</p>
         
           <h2><strong>Summary</strong></h2>
         
@@ -228,7 +228,7 @@
         
           <h2><strong>Vulnerability Chain</strong></h2>
         
-          <h3>First stage: Insecure Invitation Flow</h3>
+          <h3>First stage: Insecure Invitation Flaw</h3>
         
           <ul>
             <li>Admins invite users, and a secure email link is sent to the victim that includes a strong invitation Token</li>
@@ -251,7 +251,7 @@
         <img src="/org-flow.png" alt="" style="margin: auto; display: block;" width="80%"></div>
           <ul>
             <li>The attacker invites a victim who is an admin in another organization.</li>
-            <li>Exploit the invitation flow to hijack this victim invitation and log in as the victim to the isolated attacker’s organization.</li>
+            <li>Exploit the invitation flaw to hijack this victim invitation and log in as the victim to the isolated attacker’s organization.</li>
             <li>Generate an organization access token from the victim’s account, which should be specified to the attacker organization.</li>
             <li>Exploit the token misconfiguration: The token allows <strong>cross-organization access</strong> to <strong>any organization</strong> where the victim is an admin, not just the attacker's one.</li>
             <li>Get the victim's organization ID with the generated token</li>
